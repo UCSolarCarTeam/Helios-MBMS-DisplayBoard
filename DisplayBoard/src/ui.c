@@ -105,6 +105,37 @@ lv_obj_t * ui_ContactorConnectedUnexpectedlyTrip;
 lv_obj_t * ui_LVHeartBeatTrip;
 // CUSTOM VARIABLES
 
+
+// SCREEN: ui_BatteryInfoScreen
+void ui_BatteryInfoScreen_screen_init(void);
+lv_obj_t * ui_BatteryInfoScreen;
+lv_obj_t * ui_AmphoursLabel;
+lv_obj_t * ui_PackCurrentVLabel;
+lv_obj_t * ui_PackCurrentALabel;
+lv_obj_t * ui_StateOfChargeLabel;
+lv_obj_t * ui_LowTempLabel;
+lv_obj_t * ui_MaxCellVoltageLabel;
+lv_obj_t * ui_AvgTempLabel;
+lv_obj_t * ui_HighTempLabel;
+lv_obj_t * ui_MinCellVoltageLabel;
+lv_obj_t * ui_MaxPackVoltageLabel;
+lv_obj_t * ui_MinPackVoltageLabel;
+lv_obj_t * ui_DepthofDischargeLabel;
+lv_obj_t * ui_PackCurrentVal;
+lv_obj_t * ui_AmpHoursVal;
+lv_obj_t * ui_PackVoltageVal;
+lv_obj_t * ui_StateOfChargeVal;
+lv_obj_t * ui_DepthOfDischargeVal;
+lv_obj_t * ui_LowTempVal;
+lv_obj_t * ui_AvgTempVal;
+lv_obj_t * ui_HighTempVal;
+lv_obj_t * ui_MaxCellVoltageVal;
+lv_obj_t * ui_MinPackVoltageVal;
+lv_obj_t * ui_MinCellVoltageVal;
+lv_obj_t * ui_MaxPackVoltageVal;
+lv_obj_t * ui_BatteryInfoHeader;
+// CUSTOM VARIABLES
+
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 
@@ -141,6 +172,7 @@ void ui_init(void)
     ui_HomeScreen_screen_init();
     ui_Contactor_Screen_screen_init();
     ui_TripScreen_screen_init();
+    ui_BatteryInfoScreen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_HomeScreen);
 }

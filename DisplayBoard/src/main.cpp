@@ -90,7 +90,7 @@ void setup(){
 
   Serial.println("UI initialized, switching screens");
   delay(4000);
-  lv_scr_load(ui_TripScreen);
+  lv_scr_load(ui_BatteryInfoScreen);
   lv_refr_now(NULL);  
   clearAllCheckMarks();
 }
