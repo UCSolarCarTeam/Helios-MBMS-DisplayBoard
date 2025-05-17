@@ -5,12 +5,12 @@
 
 #include "ui.h"
 
-void ui_Screen1_screen_init(void)
+void ui_HomeScreen_screen_init(void)
 {
-    ui_Screen1 = lv_obj_create(NULL);
-    lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_HomeScreen = lv_obj_create(NULL);
+    lv_obj_clear_flag(ui_HomeScreen, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_ContactorStatusBtn = lv_btn_create(ui_Screen1);
+    ui_ContactorStatusBtn = lv_btn_create(ui_HomeScreen);
     lv_obj_set_width(ui_ContactorStatusBtn, 303);
     lv_obj_set_height(ui_ContactorStatusBtn, 50);
     lv_obj_set_x(ui_ContactorStatusBtn, 1);
@@ -19,7 +19,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_ContactorStatusBtn, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_clear_flag(ui_ContactorStatusBtn, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_ContactorStatusLabel = lv_label_create(ui_Screen1);
+    ui_ContactorStatusLabel = lv_label_create(ui_HomeScreen);
     lv_obj_set_width(ui_ContactorStatusLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ContactorStatusLabel, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_ContactorStatusLabel, 12);
@@ -30,7 +30,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_ContactorStatusLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ContactorStatusLabel, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_TripBtn = lv_btn_create(ui_Screen1);
+    ui_TripBtn = lv_btn_create(ui_HomeScreen);
     lv_obj_set_width(ui_TripBtn, 135);
     lv_obj_set_height(ui_TripBtn, 54);
     lv_obj_set_x(ui_TripBtn, -83);
@@ -41,7 +41,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_bg_color(ui_TripBtn, lv_color_hex(0xEC4707), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_TripBtn, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_TripLabel = lv_label_create(ui_Screen1);
+    ui_TripLabel = lv_label_create(ui_HomeScreen);
     lv_obj_set_width(ui_TripLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_TripLabel, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_TripLabel, -82);
@@ -52,7 +52,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_TripLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_TripLabel, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_BatteryBtn = lv_btn_create(ui_Screen1);
+    ui_BatteryBtn = lv_btn_create(ui_HomeScreen);
     lv_obj_set_width(ui_BatteryBtn, 139);
     lv_obj_set_height(ui_BatteryBtn, 54);
     lv_obj_set_x(ui_BatteryBtn, 82);
@@ -63,7 +63,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_bg_color(ui_BatteryBtn, lv_color_hex(0xEFB91C), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_BatteryBtn, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_BatteryLabel = lv_label_create(ui_Screen1);
+    ui_BatteryLabel = lv_label_create(ui_HomeScreen);
     lv_obj_set_width(ui_BatteryLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_BatteryLabel, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_BatteryLabel, 83);
@@ -74,7 +74,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_BatteryLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_BatteryLabel, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_MBMSBtn = lv_btn_create(ui_Screen1);
+    ui_MBMSBtn = lv_btn_create(ui_HomeScreen);
     lv_obj_set_width(ui_MBMSBtn, 136);
     lv_obj_set_height(ui_MBMSBtn, 63);
     lv_obj_set_x(ui_MBMSBtn, 82);
@@ -85,7 +85,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_bg_color(ui_MBMSBtn, lv_color_hex(0x0FC22E), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MBMSBtn, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_MBMSLabel = lv_label_create(ui_Screen1);
+    ui_MBMSLabel = lv_label_create(ui_HomeScreen);
     lv_obj_set_width(ui_MBMSLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MBMSLabel, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_MBMSLabel, 83);
@@ -96,7 +96,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_MBMSLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_MBMSLabel, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_PowerSelectBtn = lv_btn_create(ui_Screen1);
+    ui_PowerSelectBtn = lv_btn_create(ui_HomeScreen);
     lv_obj_set_width(ui_PowerSelectBtn, 135);
     lv_obj_set_height(ui_PowerSelectBtn, 63);
     lv_obj_set_x(ui_PowerSelectBtn, -83);
@@ -107,7 +107,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_bg_color(ui_PowerSelectBtn, lv_color_hex(0x9D1BCD), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_PowerSelectBtn, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_PowerSelectLabel = lv_label_create(ui_Screen1);
+    ui_PowerSelectLabel = lv_label_create(ui_HomeScreen);
     lv_obj_set_width(ui_PowerSelectLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PowerSelectLabel, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_PowerSelectLabel, -82);
@@ -118,5 +118,6 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_PowerSelectLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_PowerSelectLabel, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    lv_obj_add_event_cb(ui_ContactorStatusBtn, ui_event_ContactorStatusBtn, LV_EVENT_ALL, NULL);
 
 }

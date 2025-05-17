@@ -25,9 +25,10 @@ extern "C" {
 #include "ui_helpers.h"
 #include "ui_events.h"
 
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-extern lv_obj_t * ui_Screen1;
+// SCREEN: ui_HomeScreen
+void ui_HomeScreen_screen_init(void);
+extern lv_obj_t * ui_HomeScreen;
+void ui_event_ContactorStatusBtn(lv_event_t * e);
 extern lv_obj_t * ui_ContactorStatusBtn;
 extern lv_obj_t * ui_ContactorStatusLabel;
 extern lv_obj_t * ui_TripBtn;
@@ -40,9 +41,64 @@ extern lv_obj_t * ui_PowerSelectBtn;
 extern lv_obj_t * ui_PowerSelectLabel;
 // CUSTOM VARIABLES
 
+// SCREEN: ui_Contactor_Screen
+void ui_Contactor_Screen_screen_init(void);
+extern lv_obj_t * ui_Contactor_Screen;
+extern lv_obj_t * ui_TableHeader;
+extern lv_obj_t * ui_ContactorTableHeader;
+extern lv_obj_t * ui_StateTableHeader;
+extern lv_obj_t * ui_AmpTableHeader;
+extern lv_obj_t * ui_VoltTableHeader;
+extern lv_obj_t * ui_HeartbeatIcon;
+extern lv_obj_t * ui_CommonRowContainer;
+extern lv_obj_t * ui_CommonCheck;
+extern lv_obj_t * ui_CommonContactorLabel;
+extern lv_obj_t * ui_CommonState;
+extern lv_obj_t * ui_CommonA;
+extern lv_obj_t * ui_CommonV;
+extern lv_obj_t * ui_MotorRowContainer;
+extern lv_obj_t * ui_MotorContactorLabel;
+extern lv_obj_t * ui_MotorState;
+extern lv_obj_t * ui_MotorCheck;
+extern lv_obj_t * ui_MotorA;
+extern lv_obj_t * ui_MotorV;
+extern lv_obj_t * ui_ArrayRowContainer;
+extern lv_obj_t * ui_ArrayContactorLabel;
+extern lv_obj_t * ui_ArrayState;
+extern lv_obj_t * ui_ArrayCheck;
+extern lv_obj_t * ui_ArrayA;
+extern lv_obj_t * ui_ArrayV;
+extern lv_obj_t * ui_LowVRowContainer;
+extern lv_obj_t * ui_LowVContactorLabel;
+extern lv_obj_t * ui_LowVState;
+extern lv_obj_t * ui_LowVCheck;
+extern lv_obj_t * ui_LowVA;
+extern lv_obj_t * ui_LowVV;
+extern lv_obj_t * ui_ChargeRowContainer;
+extern lv_obj_t * ui_ChargeContactorLabel;
+extern lv_obj_t * ui_ChargeState;
+extern lv_obj_t * ui_ChargeCheck;
+extern lv_obj_t * ui_ChargeA;
+extern lv_obj_t * ui_ChargeV;
+extern lv_obj_t * ui_PreChargerRowContainer;
+extern lv_obj_t * ui_PreChargerContactorLabel;
+extern lv_obj_t * ui_PreChargerState;
+extern lv_obj_t * ui_PreChargerCheck;
+extern lv_obj_t * ui_PreChargerA;
+extern lv_obj_t * ui_PreChargerV;
+extern lv_obj_t * ui_ContactorColumnContainer;
+extern lv_obj_t * ui_StateColumnContainer;
+extern lv_obj_t * ui_HeartbeatColumnContainer;
+extern lv_obj_t * ui_AmpColumnContainer;
+// CUSTOM VARIABLES
+
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;
+
+// IMAGES AND IMAGE SETS
+LV_IMG_DECLARE(
+    ui_img_heart_app_icon_red_outline_black_background_png);    // assets/heart app icon red outline black background.png
 
 // UI INIT
 void ui_init(void);

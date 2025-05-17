@@ -9,9 +9,10 @@
 ///////////////////// VARIABLES ////////////////////
 
 
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-lv_obj_t * ui_Screen1;
+// SCREEN: ui_HomeScreen
+void ui_HomeScreen_screen_init(void);
+lv_obj_t * ui_HomeScreen;
+void ui_event_ContactorStatusBtn(lv_event_t * e);
 lv_obj_t * ui_ContactorStatusBtn;
 lv_obj_t * ui_ContactorStatusLabel;
 lv_obj_t * ui_TripBtn;
@@ -22,6 +23,58 @@ lv_obj_t * ui_MBMSBtn;
 lv_obj_t * ui_MBMSLabel;
 lv_obj_t * ui_PowerSelectBtn;
 lv_obj_t * ui_PowerSelectLabel;
+// CUSTOM VARIABLES
+
+
+// SCREEN: ui_Contactor_Screen
+void ui_Contactor_Screen_screen_init(void);
+lv_obj_t * ui_Contactor_Screen;
+lv_obj_t * ui_TableHeader;
+lv_obj_t * ui_ContactorTableHeader;
+lv_obj_t * ui_StateTableHeader;
+lv_obj_t * ui_AmpTableHeader;
+lv_obj_t * ui_VoltTableHeader;
+lv_obj_t * ui_HeartbeatIcon;
+lv_obj_t * ui_CommonRowContainer;
+lv_obj_t * ui_CommonCheck;
+lv_obj_t * ui_CommonContactorLabel;
+lv_obj_t * ui_CommonState;
+lv_obj_t * ui_CommonA;
+lv_obj_t * ui_CommonV;
+lv_obj_t * ui_MotorRowContainer;
+lv_obj_t * ui_MotorContactorLabel;
+lv_obj_t * ui_MotorState;
+lv_obj_t * ui_MotorCheck;
+lv_obj_t * ui_MotorA;
+lv_obj_t * ui_MotorV;
+lv_obj_t * ui_ArrayRowContainer;
+lv_obj_t * ui_ArrayContactorLabel;
+lv_obj_t * ui_ArrayState;
+lv_obj_t * ui_ArrayCheck;
+lv_obj_t * ui_ArrayA;
+lv_obj_t * ui_ArrayV;
+lv_obj_t * ui_LowVRowContainer;
+lv_obj_t * ui_LowVContactorLabel;
+lv_obj_t * ui_LowVState;
+lv_obj_t * ui_LowVCheck;
+lv_obj_t * ui_LowVA;
+lv_obj_t * ui_LowVV;
+lv_obj_t * ui_ChargeRowContainer;
+lv_obj_t * ui_ChargeContactorLabel;
+lv_obj_t * ui_ChargeState;
+lv_obj_t * ui_ChargeCheck;
+lv_obj_t * ui_ChargeA;
+lv_obj_t * ui_ChargeV;
+lv_obj_t * ui_PreChargerRowContainer;
+lv_obj_t * ui_PreChargerContactorLabel;
+lv_obj_t * ui_PreChargerState;
+lv_obj_t * ui_PreChargerCheck;
+lv_obj_t * ui_PreChargerA;
+lv_obj_t * ui_PreChargerV;
+lv_obj_t * ui_ContactorColumnContainer;
+lv_obj_t * ui_StateColumnContainer;
+lv_obj_t * ui_HeartbeatColumnContainer;
+lv_obj_t * ui_AmpColumnContainer;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -40,6 +93,14 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+void ui_event_ContactorStatusBtn(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Contactor_Screen, LV_SCR_LOAD_ANIM_FADE_ON, 250, 0, &ui_Contactor_Screen_screen_init);
+    }
+}
 
 ///////////////////// SCREENS ////////////////////
 
@@ -49,7 +110,8 @@ void ui_init(void)
     lv_theme_t * theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED),
                                                true, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
-    ui_Screen1_screen_init();
+    ui_HomeScreen_screen_init();
+    ui_Contactor_Screen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
-    lv_disp_load_scr(ui_Screen1);
+    lv_disp_load_scr(ui_HomeScreen);
 }

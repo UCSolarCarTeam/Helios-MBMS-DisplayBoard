@@ -56,6 +56,12 @@ void setup(){
   digitalWrite(19,HIGH);
 
   ui_init();
+
+  Serial.println("UI initialized, switching screens");
+  delay(4000);
+  lv_scr_load(ui_Contactor_Screen);
+  delay(100);
+  lv_refr_now(NULL);  
 }
 
 void loop(){
