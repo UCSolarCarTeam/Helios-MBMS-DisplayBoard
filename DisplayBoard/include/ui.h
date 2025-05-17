@@ -167,6 +167,29 @@ extern lv_obj_t * ui_MBMSStatusHeader;
 extern lv_obj_t * ui_HighVoltageEnableStateCheck;
 // CUSTOM VARIABLES
 
+// SCREEN: ui_PowerSelectionStatusScreen
+void ui_PowerSelectionStatusScreen_screen_init(void);
+extern lv_obj_t * ui_PowerSelectionStatusScreen;
+extern lv_obj_t * ui_MainPowerSwitchPanel;
+extern lv_obj_t * ui_MainPowerSwitchVal;
+extern lv_obj_t * ui_MainPowerSwitchLabel;
+extern lv_obj_t * ui_EN1Panel;
+extern lv_obj_t * ui_EN1Val;
+extern lv_obj_t * ui_EN1Label;
+extern lv_obj_t * ui_ExternalShutdownCheck;
+extern lv_obj_t * ui_DCDCFaultCheck;
+extern lv_obj_t * ui_DCDCOnCheck;
+extern lv_obj_t * ui_ChargeFaultCheck;
+extern lv_obj_t * ui_ChargeOnCheck;
+extern lv_obj_t * ui_ThreeAmpOverCurrentCheck;
+extern lv_obj_t * ui_KeyPanel;
+extern lv_obj_t * ui_KeyLabel;
+extern lv_obj_t * ui_KeyVal;
+extern lv_obj_t * ui_ChargeLVEnableCheck;
+extern lv_obj_t * ui_AuxBattDisableCheck;
+extern lv_obj_t * ui_Label22;
+// CUSTOM VARIABLES
+
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;

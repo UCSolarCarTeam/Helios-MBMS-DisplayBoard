@@ -155,6 +155,30 @@ lv_obj_t * ui_MBMSStatusHeader;
 lv_obj_t * ui_HighVoltageEnableStateCheck;
 // CUSTOM VARIABLES
 
+
+// SCREEN: ui_PowerSelectionStatusScreen
+void ui_PowerSelectionStatusScreen_screen_init(void);
+lv_obj_t * ui_PowerSelectionStatusScreen;
+lv_obj_t * ui_MainPowerSwitchPanel;
+lv_obj_t * ui_MainPowerSwitchVal;
+lv_obj_t * ui_MainPowerSwitchLabel;
+lv_obj_t * ui_EN1Panel;
+lv_obj_t * ui_EN1Val;
+lv_obj_t * ui_EN1Label;
+lv_obj_t * ui_ExternalShutdownCheck;
+lv_obj_t * ui_DCDCFaultCheck;
+lv_obj_t * ui_DCDCOnCheck;
+lv_obj_t * ui_ChargeFaultCheck;
+lv_obj_t * ui_ChargeOnCheck;
+lv_obj_t * ui_ThreeAmpOverCurrentCheck;
+lv_obj_t * ui_KeyPanel;
+lv_obj_t * ui_KeyLabel;
+lv_obj_t * ui_KeyVal;
+lv_obj_t * ui_ChargeLVEnableCheck;
+lv_obj_t * ui_AuxBattDisableCheck;
+lv_obj_t * ui_Label22;
+// CUSTOM VARIABLES
+
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 
@@ -193,6 +217,7 @@ void ui_init(void)
     ui_TripScreen_screen_init();
     ui_BatteryInfoScreen_screen_init();
     ui_MBMSStatusScreen_screen_init();
+    ui_PowerSelectionStatusScreen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_HomeScreen);
 }

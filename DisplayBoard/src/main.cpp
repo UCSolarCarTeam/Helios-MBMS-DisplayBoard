@@ -45,6 +45,15 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_HighVoltageEnableStateCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_AllowDischargeCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_ChargeSafetyCheck, LV_STATE_CHECKED);
+
+    lv_obj_clear_state(ui_ExternalShutdownCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_DCDCFaultCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ChargeFaultCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_DCDCOnCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ChargeOnCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ThreeAmpOverCurrentCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_AuxBattDisableCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ChargeLVEnableCheck, LV_STATE_CHECKED);
 }
 
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
@@ -99,7 +108,7 @@ void setup(){
 
   Serial.println("UI initialized, switching screens");
   delay(4000);
-  lv_scr_load(ui_MBMSStatusScreen);
+  lv_scr_load(ui_PowerSelectionStatusScreen);
   lv_refr_now(NULL);  
   clearAllCheckMarks();
 }
