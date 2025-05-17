@@ -136,6 +136,25 @@ lv_obj_t * ui_MaxPackVoltageVal;
 lv_obj_t * ui_BatteryInfoHeader;
 // CUSTOM VARIABLES
 
+
+// SCREEN: ui_MBMSStatusScreen
+void ui_MBMSStatusScreen_screen_init(void);
+lv_obj_t * ui_MBMSStatusScreen;
+lv_obj_t * ui_AllowChargeCheck;
+lv_obj_t * ui_AuxiliaryBatteryVoltageLabel;
+lv_obj_t * ui_OrionCanReceivedCheck;
+lv_obj_t * ui_DischargeShouldTripCheck;
+lv_obj_t * ui_ChargeShouldTripCheck;
+lv_obj_t * ui_StrobeBMSLightCheck;
+lv_obj_t * ui_StartupStateLabel;
+lv_obj_t * ui_AllowDischargeCheck;
+lv_obj_t * ui_ChargeSafetyCheck;
+lv_obj_t * ui_AuxBatteryVoltageVal;
+lv_obj_t * ui_StartupStateVal;
+lv_obj_t * ui_MBMSStatusHeader;
+lv_obj_t * ui_HighVoltageEnableStateCheck;
+// CUSTOM VARIABLES
+
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 
@@ -173,6 +192,7 @@ void ui_init(void)
     ui_Contactor_Screen_screen_init();
     ui_TripScreen_screen_init();
     ui_BatteryInfoScreen_screen_init();
+    ui_MBMSStatusScreen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_HomeScreen);
 }

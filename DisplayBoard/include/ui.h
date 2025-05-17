@@ -149,6 +149,24 @@ extern lv_obj_t * ui_MaxPackVoltageVal;
 extern lv_obj_t * ui_BatteryInfoHeader;
 // CUSTOM VARIABLES
 
+// SCREEN: ui_MBMSStatusScreen
+void ui_MBMSStatusScreen_screen_init(void);
+extern lv_obj_t * ui_MBMSStatusScreen;
+extern lv_obj_t * ui_AllowChargeCheck;
+extern lv_obj_t * ui_AuxiliaryBatteryVoltageLabel;
+extern lv_obj_t * ui_OrionCanReceivedCheck;
+extern lv_obj_t * ui_DischargeShouldTripCheck;
+extern lv_obj_t * ui_ChargeShouldTripCheck;
+extern lv_obj_t * ui_StrobeBMSLightCheck;
+extern lv_obj_t * ui_StartupStateLabel;
+extern lv_obj_t * ui_AllowDischargeCheck;
+extern lv_obj_t * ui_ChargeSafetyCheck;
+extern lv_obj_t * ui_AuxBatteryVoltageVal;
+extern lv_obj_t * ui_StartupStateVal;
+extern lv_obj_t * ui_MBMSStatusHeader;
+extern lv_obj_t * ui_HighVoltageEnableStateCheck;
+// CUSTOM VARIABLES
+
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;
