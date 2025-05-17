@@ -71,7 +71,7 @@ void printTouchToDisplay(int touchX, int touchY, int touchZ) {
   tft.drawCentreString(tempText, centerX, textY, FONT_SIZE);
 }
 
-void setup() {
+void setupTest() {
   Serial.begin(115200);
 
   // Start the SPI for the touchscreen and init the touchscreen
@@ -98,7 +98,7 @@ void setup() {
   tft.drawCentreString("Touch screen to test", centerX, centerY, FONT_SIZE);
 }
 
-void loop() {
+void loopTest() {
   // Checks if Touchscreen was touched, and prints X, Y and Pressure (Z) info on the TFT display and Serial Monitor
   if (touchscreen.tirqTouched() && touchscreen.touched()) {
     // Get Touchscreen points
