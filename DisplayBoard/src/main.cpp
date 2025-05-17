@@ -7,6 +7,37 @@
 
 TFT_eSPI tftDisplay = TFT_eSPI();
 
+void clearAllCheckMarks(void)
+{
+    lv_obj_clear_state(ui_HighCellVoltageTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_LowCellVoltageTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_CommonHighCurrTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_MotorHighCurrTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ArrayHighCurrTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_LVHighCurrTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ProtectionTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_OrionMsgTimeoutTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_HighBatteryTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ESDEnabledTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_HighTempTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_MPSDisabledTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_LowTempTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_CommonHeartBeatTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_MotorHeartbeatTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ArrayHeartbeatTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ChargeHeartbeatTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ContactorDisconnectedUnexpectedlyTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ContactorConnectedUnexpectedlyTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_LVHeartBeatTrip, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_ChargeHighCurrTrip, LV_STATE_CHECKED);
+
+    lv_obj_clear_state(ui_ArrayCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_LowVCheck, LV_STATE_CHECKED); 
+    lv_obj_clear_state(ui_ChargeCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_PreChargerCheck, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_MotorCheck, LV_STATE_CHECKED);
+}
+
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
   uint16_t c;
@@ -59,12 +90,14 @@ void setup(){
 
   Serial.println("UI initialized, switching screens");
   delay(4000);
-  lv_scr_load(ui_Contactor_Screen);
-  delay(100);
+  lv_scr_load(ui_TripScreen);
   lv_refr_now(NULL);  
+  clearAllCheckMarks();
 }
 
 void loop(){
+
+
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);  
   lv_timer_handler(); // Handle LVGL timers

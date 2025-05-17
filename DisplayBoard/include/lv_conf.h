@@ -8,6 +8,7 @@
 #define LV_FONT_MONTSERRAT_22  1
 #define LV_FONT_MONTSERRAT_40  1
 #define LV_FONT_MONTSERRAT_18  1
+#define LV_FONT_MONTSERRAT_10  1
 
 /* Screen resolution */
 #define LV_HOR_RES_MAX 320
@@ -18,5 +19,7 @@
 
 /* Enable display buffering */
 #define LV_USE_PERF_MONITOR 0
+
+#define LV_USE_PATTERN 1 
 
 #endif // LV_CONF_H

@@ -1,5 +1,6 @@
 SET(SOURCES ui_HomeScreen.c
     ui_Contactor_Screen.c
+    ui_TripScreen.c
     ui.c
     ui_comp_hook.c
     ui_helpers.c

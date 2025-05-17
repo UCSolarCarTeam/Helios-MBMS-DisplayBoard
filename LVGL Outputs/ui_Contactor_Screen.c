@@ -94,7 +94,6 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_set_align(ui_CommonCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_CommonCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_CommonCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_CommonCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_CommonCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_CommonCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -172,7 +171,6 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_add_state(ui_MotorCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_MotorCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_MotorCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_MotorCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MotorCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_MotorCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -234,7 +232,6 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_add_state(ui_ArrayCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_ArrayCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_ArrayCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_ArrayCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ArrayCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_ArrayCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -295,7 +292,6 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_set_align(ui_LowVCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_LowVCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_LowVCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_LowVCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LowVCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_LowVCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -356,7 +352,6 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_set_align(ui_ChargeCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_ChargeCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_ChargeCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ChargeCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_ChargeCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
