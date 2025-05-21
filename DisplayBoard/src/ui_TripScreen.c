@@ -25,7 +25,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_HighCellVoltageTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_HighCellVoltageTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_HighCellVoltageTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_HighCellVoltageTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_HighCellVoltageTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -41,7 +40,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_LowCellVoltageTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_LowCellVoltageTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_LowCellVoltageTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_LowCellVoltageTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LowCellVoltageTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -68,7 +66,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_CommonHighCurrTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_CommonHighCurrTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_CommonHighCurrTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_CommonHighCurrTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_CommonHighCurrTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -84,7 +81,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_MotorHighCurrTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_MotorHighCurrTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_MotorHighCurrTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_MotorHighCurrTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MotorHighCurrTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -100,7 +96,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_ArrayHighCurrTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ArrayHighCurrTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ArrayHighCurrTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ArrayHighCurrTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ArrayHighCurrTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -116,7 +111,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_LVHighCurrTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_LVHighCurrTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_LVHighCurrTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_LVHighCurrTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LVHighCurrTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -132,7 +126,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_ChargeHighCurrTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ChargeHighCurrTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ChargeHighCurrTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ChargeHighCurrTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ChargeHighCurrTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -148,7 +141,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_ProtectionTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ProtectionTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ProtectionTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ProtectionTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ProtectionTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -164,7 +156,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_OrionMsgTimeoutTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_OrionMsgTimeoutTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_OrionMsgTimeoutTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_OrionMsgTimeoutTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_OrionMsgTimeoutTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -183,7 +174,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_HighBatteryTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_HighBatteryTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_HighBatteryTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_HighBatteryTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_HighBatteryTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -199,7 +189,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_ESDEnabledTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ESDEnabledTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ESDEnabledTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ESDEnabledTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ESDEnabledTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -215,7 +204,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_HighTempTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_HighTempTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_HighTempTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_HighTempTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_HighTempTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -231,7 +219,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_MPSDisabledTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_MPSDisabledTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_MPSDisabledTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_MPSDisabledTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MPSDisabledTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -247,7 +234,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_LowTempTrip, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_LowTempTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_LowTempTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_LowTempTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LowTempTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -266,7 +252,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_CommonHeartBeatTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_CommonHeartBeatTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_CommonHeartBeatTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_CommonHeartBeatTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_CommonHeartBeatTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -285,7 +270,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_MotorHeartbeatTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_MotorHeartbeatTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_MotorHeartbeatTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_MotorHeartbeatTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MotorHeartbeatTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -304,7 +288,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_ArrayHeartbeatTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ArrayHeartbeatTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ArrayHeartbeatTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ArrayHeartbeatTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ArrayHeartbeatTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -313,7 +296,7 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_width(ui_ChargeHeartbeatTrip, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeHeartbeatTrip, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_ChargeHeartbeatTrip, -113);
-    lv_obj_set_y(ui_ChargeHeartbeatTrip, 55);
+    lv_obj_set_y(ui_ChargeHeartbeatTrip, 54);
     lv_obj_set_align(ui_ChargeHeartbeatTrip, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeHeartbeatTrip, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_set_style_text_color(ui_ChargeHeartbeatTrip, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -323,7 +306,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_ChargeHeartbeatTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ChargeHeartbeatTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ChargeHeartbeatTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ChargeHeartbeatTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ChargeHeartbeatTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
@@ -345,7 +327,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_font(ui_ContactorDisconnectedUnexpectedlyTrip, &lv_font_montserrat_10,
                                LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ContactorDisconnectedUnexpectedlyTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ContactorDisconnectedUnexpectedlyTrip, lv_color_hex(0xFFFFFF),
                               LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ContactorDisconnectedUnexpectedlyTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -367,7 +348,6 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_font(ui_ContactorConnectedUnexpectedlyTrip, &lv_font_montserrat_10,
                                LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_ContactorConnectedUnexpectedlyTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_ContactorConnectedUnexpectedlyTrip, lv_color_hex(0xFFFFFF),
                               LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ContactorConnectedUnexpectedlyTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -387,8 +367,8 @@ void ui_TripScreen_screen_init(void)
     lv_obj_set_style_text_align(ui_LVHeartBeatTrip, LV_TEXT_ALIGN_AUTO, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_LVHeartBeatTrip, &lv_font_montserrat_10, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_state(ui_LVHeartBeatTrip, LV_STATE_CHECKED);
     lv_obj_set_style_bg_color(ui_LVHeartBeatTrip, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LVHeartBeatTrip, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
 
 }

@@ -14,11 +14,10 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_AllowChargeCheck, "Allow Charge");
     lv_obj_set_width(ui_AllowChargeCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AllowChargeCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AllowChargeCheck, -92);
-    lv_obj_set_y(ui_AllowChargeCheck, 21);
+    lv_obj_set_x(ui_AllowChargeCheck, -93);
+    lv_obj_set_y(ui_AllowChargeCheck, -4);
     lv_obj_set_align(ui_AllowChargeCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_AllowChargeCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_AllowChargeCheck, LV_STATE_CHECKED);       /// States
 
     ui_AuxiliaryBatteryVoltageLabel = lv_label_create(ui_MBMSStatusScreen);
     lv_obj_set_width(ui_AuxiliaryBatteryVoltageLabel, LV_SIZE_CONTENT);   /// 1
@@ -36,7 +35,6 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_obj_set_y(ui_OrionCanReceivedCheck, 48);
     lv_obj_set_align(ui_OrionCanReceivedCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_OrionCanReceivedCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_OrionCanReceivedCheck, LV_STATE_CHECKED);       /// States
 
     ui_DischargeShouldTripCheck = lv_checkbox_create(ui_MBMSStatusScreen);
     lv_checkbox_set_text(ui_DischargeShouldTripCheck, "Discharge Should Trip");
@@ -46,7 +44,6 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_obj_set_y(ui_DischargeShouldTripCheck, 73);
     lv_obj_set_align(ui_DischargeShouldTripCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_DischargeShouldTripCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_DischargeShouldTripCheck, LV_STATE_CHECKED);       /// States
 
     ui_ChargeShouldTripCheck = lv_checkbox_create(ui_MBMSStatusScreen);
     lv_checkbox_set_text(ui_ChargeShouldTripCheck, "Charge Should Trip");
@@ -56,17 +53,15 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_obj_set_y(ui_ChargeShouldTripCheck, 99);
     lv_obj_set_align(ui_ChargeShouldTripCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeShouldTripCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_ChargeShouldTripCheck, LV_STATE_CHECKED);       /// States
 
     ui_StrobeBMSLightCheck = lv_checkbox_create(ui_MBMSStatusScreen);
     lv_checkbox_set_text(ui_StrobeBMSLightCheck, "Strobe BMS Light");
     lv_obj_set_width(ui_StrobeBMSLightCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_StrobeBMSLightCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_StrobeBMSLightCheck, -75);
-    lv_obj_set_y(ui_StrobeBMSLightCheck, -5);
+    lv_obj_set_x(ui_StrobeBMSLightCheck, -77);
+    lv_obj_set_y(ui_StrobeBMSLightCheck, -34);
     lv_obj_set_align(ui_StrobeBMSLightCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_StrobeBMSLightCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_StrobeBMSLightCheck, LV_STATE_CHECKED);       /// States
 
     ui_StartupStateLabel = lv_label_create(ui_MBMSStatusScreen);
     lv_obj_set_width(ui_StartupStateLabel, LV_SIZE_CONTENT);   /// 1
@@ -80,21 +75,19 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_AllowDischargeCheck, "Allow Discharge");
     lv_obj_set_width(ui_AllowDischargeCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AllowDischargeCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AllowDischargeCheck, 81);
-    lv_obj_set_y(ui_AllowDischargeCheck, 19);
+    lv_obj_set_x(ui_AllowDischargeCheck, 80);
+    lv_obj_set_y(ui_AllowDischargeCheck, -4);
     lv_obj_set_align(ui_AllowDischargeCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_AllowDischargeCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_AllowDischargeCheck, LV_STATE_CHECKED);       /// States
 
     ui_ChargeSafetyCheck = lv_checkbox_create(ui_MBMSStatusScreen);
     lv_checkbox_set_text(ui_ChargeSafetyCheck, "Charge Safety");
     lv_obj_set_width(ui_ChargeSafetyCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeSafetyCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeSafetyCheck, 74);
-    lv_obj_set_y(ui_ChargeSafetyCheck, -6);
+    lv_obj_set_x(ui_ChargeSafetyCheck, 73);
+    lv_obj_set_y(ui_ChargeSafetyCheck, -34);
     lv_obj_set_align(ui_ChargeSafetyCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeSafetyCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_ChargeSafetyCheck, LV_STATE_CHECKED);       /// States
 
     ui_AuxBatteryVoltageVal = lv_label_create(ui_MBMSStatusScreen);
     lv_obj_set_width(ui_AuxBatteryVoltageVal, LV_SIZE_CONTENT);   /// 1
@@ -131,10 +124,11 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_HighVoltageEnableStateCheck, "High Voltage Enable State");
     lv_obj_set_width(ui_HighVoltageEnableStateCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_HighVoltageEnableStateCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_HighVoltageEnableStateCheck, 5);
-    lv_obj_set_y(ui_HighVoltageEnableStateCheck, -29);
+    lv_obj_set_x(ui_HighVoltageEnableStateCheck, 7);
+    lv_obj_set_y(ui_HighVoltageEnableStateCheck, 21);
     lv_obj_set_align(ui_HighVoltageEnableStateCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_HighVoltageEnableStateCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_add_state(ui_HighVoltageEnableStateCheck, LV_STATE_CHECKED);       /// States
+
+
 
 }

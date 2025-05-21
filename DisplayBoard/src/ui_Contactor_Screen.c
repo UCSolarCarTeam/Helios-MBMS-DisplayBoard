@@ -27,7 +27,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ContactorTableHeader = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ContactorTableHeader, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ContactorTableHeader, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ContactorTableHeader, -113);
+    lv_obj_set_x(ui_ContactorTableHeader, -109);
     lv_obj_set_y(ui_ContactorTableHeader, -92);
     lv_obj_set_align(ui_ContactorTableHeader, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ContactorTableHeader, "Contactor");
@@ -36,8 +36,8 @@ void ui_Contactor_Screen_screen_init(void)
     ui_StateTableHeader = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_StateTableHeader, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_StateTableHeader, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_StateTableHeader, -33);
-    lv_obj_set_y(ui_StateTableHeader, -92);
+    lv_obj_set_x(ui_StateTableHeader, -23);
+    lv_obj_set_y(ui_StateTableHeader, -91);
     lv_obj_set_align(ui_StateTableHeader, LV_ALIGN_CENTER);
     lv_label_set_text(ui_StateTableHeader, "State");
     lv_obj_set_style_text_font(ui_StateTableHeader, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -45,7 +45,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_AmpTableHeader = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_AmpTableHeader, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AmpTableHeader, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AmpTableHeader, 72);
+    lv_obj_set_x(ui_AmpTableHeader, 85);
     lv_obj_set_y(ui_AmpTableHeader, -92);
     lv_obj_set_align(ui_AmpTableHeader, LV_ALIGN_CENTER);
     lv_label_set_text(ui_AmpTableHeader, "A");
@@ -54,7 +54,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_VoltTableHeader = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_VoltTableHeader, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_VoltTableHeader, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_VoltTableHeader, 125);
+    lv_obj_set_x(ui_VoltTableHeader, 132);
     lv_obj_set_y(ui_VoltTableHeader, -92);
     lv_obj_set_align(ui_VoltTableHeader, LV_ALIGN_CENTER);
     lv_label_set_text(ui_VoltTableHeader, "V");
@@ -64,7 +64,7 @@ void ui_Contactor_Screen_screen_init(void)
     lv_img_set_src(ui_HeartbeatIcon, &ui_img_heart_app_icon_red_outline_black_background_png);
     lv_obj_set_width(ui_HeartbeatIcon, LV_SIZE_CONTENT);   /// 50
     lv_obj_set_height(ui_HeartbeatIcon, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_HeartbeatIcon, 24);
+    lv_obj_set_x(ui_HeartbeatIcon, 37);
     lv_obj_set_y(ui_HeartbeatIcon, -93);
     lv_obj_set_align(ui_HeartbeatIcon, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_HeartbeatIcon, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
@@ -89,12 +89,11 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_CommonCheck, "");
     lv_obj_set_width(ui_CommonCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_CommonCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_CommonCheck, 28);
+    lv_obj_set_x(ui_CommonCheck, 44);
     lv_obj_set_y(ui_CommonCheck, -53);
     lv_obj_set_align(ui_CommonCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_CommonCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_CommonCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_CommonCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_CommonCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_CommonCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -103,7 +102,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_CommonContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_CommonContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_CommonContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_CommonContactorLabel, -118);
+    lv_obj_set_x(ui_CommonContactorLabel, -108);
     lv_obj_set_y(ui_CommonContactorLabel, -52);
     lv_obj_set_align(ui_CommonContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_CommonContactorLabel, "Common");
@@ -111,7 +110,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_CommonState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_CommonState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_CommonState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_CommonState, -35);
+    lv_obj_set_x(ui_CommonState, -18);
     lv_obj_set_y(ui_CommonState, -52);
     lv_obj_set_align(ui_CommonState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_CommonState, "OPEN");
@@ -119,7 +118,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_CommonA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_CommonA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_CommonA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_CommonA, 72);
+    lv_obj_set_x(ui_CommonA, 85);
     lv_obj_set_y(ui_CommonA, -52);
     lv_obj_set_align(ui_CommonA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_CommonA, "5.5");
@@ -127,7 +126,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_CommonV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_CommonV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_CommonV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_CommonV, 125);
+    lv_obj_set_x(ui_CommonV, 132);
     lv_obj_set_y(ui_CommonV, -52);
     lv_obj_set_align(ui_CommonV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_CommonV, "12.2");
@@ -149,7 +148,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_MotorContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_MotorContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MotorContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MotorContactorLabel, -122);
+    lv_obj_set_x(ui_MotorContactorLabel, -108);
     lv_obj_set_y(ui_MotorContactorLabel, -25);
     lv_obj_set_align(ui_MotorContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MotorContactorLabel, "Motor");
@@ -157,7 +156,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_MotorState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_MotorState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MotorState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MotorState, -31);
+    lv_obj_set_x(ui_MotorState, -19);
     lv_obj_set_y(ui_MotorState, -25);
     lv_obj_set_align(ui_MotorState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MotorState, "CLOSED");
@@ -166,13 +165,12 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_MotorCheck, "");
     lv_obj_set_width(ui_MotorCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MotorCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MotorCheck, 29);
+    lv_obj_set_x(ui_MotorCheck, 44);
     lv_obj_set_y(ui_MotorCheck, -25);
     lv_obj_set_align(ui_MotorCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_MotorCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_MotorCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_MotorCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_MotorCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_MotorCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_MotorCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -181,7 +179,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_MotorA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_MotorA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MotorA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MotorA, 72);
+    lv_obj_set_x(ui_MotorA, 85);
     lv_obj_set_y(ui_MotorA, -25);
     lv_obj_set_align(ui_MotorA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MotorA, "5.5");
@@ -189,7 +187,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_MotorV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_MotorV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MotorV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MotorV, 125);
+    lv_obj_set_x(ui_MotorV, 132);
     lv_obj_set_y(ui_MotorV, -25);
     lv_obj_set_align(ui_MotorV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MotorV, "12.2");
@@ -211,7 +209,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ArrayContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ArrayContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ArrayContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ArrayContactorLabel, -122);
+    lv_obj_set_x(ui_ArrayContactorLabel, -108);
     lv_obj_set_y(ui_ArrayContactorLabel, 3);
     lv_obj_set_align(ui_ArrayContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ArrayContactorLabel, "Array");
@@ -219,7 +217,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ArrayState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ArrayState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ArrayState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ArrayState, -30);
+    lv_obj_set_x(ui_ArrayState, -19);
     lv_obj_set_y(ui_ArrayState, 3);
     lv_obj_set_align(ui_ArrayState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ArrayState, "CLOSED");
@@ -228,13 +226,12 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_ArrayCheck, "");
     lv_obj_set_width(ui_ArrayCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ArrayCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ArrayCheck, 29);
+    lv_obj_set_x(ui_ArrayCheck, 44);
     lv_obj_set_y(ui_ArrayCheck, 3);
     lv_obj_set_align(ui_ArrayCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_ArrayCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_ArrayCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_ArrayCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_ArrayCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ArrayCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_ArrayCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -243,7 +240,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ArrayA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ArrayA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ArrayA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ArrayA, 72);
+    lv_obj_set_x(ui_ArrayA, 85);
     lv_obj_set_y(ui_ArrayA, 3);
     lv_obj_set_align(ui_ArrayA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ArrayA, "5.5");
@@ -251,7 +248,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ArrayV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ArrayV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ArrayV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ArrayV, 125);
+    lv_obj_set_x(ui_ArrayV, 132);
     lv_obj_set_y(ui_ArrayV, 3);
     lv_obj_set_align(ui_ArrayV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ArrayV, "12.2");
@@ -273,7 +270,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_LowVContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_LowVContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_LowVContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_LowVContactorLabel, -122);
+    lv_obj_set_x(ui_LowVContactorLabel, -108);
     lv_obj_set_y(ui_LowVContactorLabel, 34);
     lv_obj_set_align(ui_LowVContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_LowVContactorLabel, "LowV");
@@ -281,7 +278,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_LowVState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_LowVState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_LowVState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_LowVState, -30);
+    lv_obj_set_x(ui_LowVState, -19);
     lv_obj_set_y(ui_LowVState, 34);
     lv_obj_set_align(ui_LowVState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_LowVState, "CLOSED");
@@ -290,12 +287,11 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_LowVCheck, "");
     lv_obj_set_width(ui_LowVCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_LowVCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_LowVCheck, 29);
+    lv_obj_set_x(ui_LowVCheck, 44);
     lv_obj_set_y(ui_LowVCheck, 33);
     lv_obj_set_align(ui_LowVCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_LowVCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_LowVCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_LowVCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_LowVCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_LowVCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -304,7 +300,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_LowVA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_LowVA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_LowVA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_LowVA, 72);
+    lv_obj_set_x(ui_LowVA, 85);
     lv_obj_set_y(ui_LowVA, 33);
     lv_obj_set_align(ui_LowVA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_LowVA, "5.5");
@@ -312,7 +308,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_LowVV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_LowVV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_LowVV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_LowVV, 125);
+    lv_obj_set_x(ui_LowVV, 132);
     lv_obj_set_y(ui_LowVV, 33);
     lv_obj_set_align(ui_LowVV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_LowVV, "12.2");
@@ -334,7 +330,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ChargeContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ChargeContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeContactorLabel, -122);
+    lv_obj_set_x(ui_ChargeContactorLabel, -108);
     lv_obj_set_y(ui_ChargeContactorLabel, 64);
     lv_obj_set_align(ui_ChargeContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ChargeContactorLabel, "Charge");
@@ -342,7 +338,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ChargeState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ChargeState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeState, -30);
+    lv_obj_set_x(ui_ChargeState, -19);
     lv_obj_set_y(ui_ChargeState, 64);
     lv_obj_set_align(ui_ChargeState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ChargeState, "CLOSED");
@@ -351,12 +347,11 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_ChargeCheck, "");
     lv_obj_set_width(ui_ChargeCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeCheck, 29);
+    lv_obj_set_x(ui_ChargeCheck, 44);
     lv_obj_set_y(ui_ChargeCheck, 64);
     lv_obj_set_align(ui_ChargeCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
-    lv_obj_add_state(ui_ChargeCheck, LV_STATE_CHECKED);       /// States
     lv_obj_set_style_bg_color(ui_ChargeCheck, lv_color_hex(0xFFFFFF), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_ChargeCheck, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(ui_ChargeCheck, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -365,7 +360,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ChargeA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ChargeA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeA, 72);
+    lv_obj_set_x(ui_ChargeA, 85);
     lv_obj_set_y(ui_ChargeA, 64);
     lv_obj_set_align(ui_ChargeA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ChargeA, "5.5");
@@ -373,7 +368,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ChargeV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_ChargeV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeV, 125);
+    lv_obj_set_x(ui_ChargeV, 132);
     lv_obj_set_y(ui_ChargeV, 64);
     lv_obj_set_align(ui_ChargeV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_ChargeV, "12.2");
@@ -395,7 +390,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_PreChargerContactorLabel = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_PreChargerContactorLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PreChargerContactorLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_PreChargerContactorLabel, -114);
+    lv_obj_set_x(ui_PreChargerContactorLabel, -108);
     lv_obj_set_y(ui_PreChargerContactorLabel, 94);
     lv_obj_set_align(ui_PreChargerContactorLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_PreChargerContactorLabel, "PreCharger");
@@ -403,7 +398,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_PreChargerState = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_PreChargerState, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PreChargerState, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_PreChargerState, -30);
+    lv_obj_set_x(ui_PreChargerState, -19);
     lv_obj_set_y(ui_PreChargerState, 94);
     lv_obj_set_align(ui_PreChargerState, LV_ALIGN_CENTER);
     lv_label_set_text(ui_PreChargerState, "CLOSED");
@@ -412,7 +407,7 @@ void ui_Contactor_Screen_screen_init(void)
     lv_checkbox_set_text(ui_PreChargerCheck, "");
     lv_obj_set_width(ui_PreChargerCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PreChargerCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_PreChargerCheck, 29);
+    lv_obj_set_x(ui_PreChargerCheck, 44);
     lv_obj_set_y(ui_PreChargerCheck, 94);
     lv_obj_set_align(ui_PreChargerCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_PreChargerCheck, LV_STATE_CHECKED);       /// States
@@ -426,7 +421,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_PreChargerA = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_PreChargerA, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PreChargerA, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_PreChargerA, 72);
+    lv_obj_set_x(ui_PreChargerA, 85);
     lv_obj_set_y(ui_PreChargerA, 94);
     lv_obj_set_align(ui_PreChargerA, LV_ALIGN_CENTER);
     lv_label_set_text(ui_PreChargerA, "5.5");
@@ -434,7 +429,7 @@ void ui_Contactor_Screen_screen_init(void)
     ui_PreChargerV = lv_label_create(ui_Contactor_Screen);
     lv_obj_set_width(ui_PreChargerV, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_PreChargerV, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_PreChargerV, 125);
+    lv_obj_set_x(ui_PreChargerV, 132);
     lv_obj_set_y(ui_PreChargerV, 94);
     lv_obj_set_align(ui_PreChargerV, LV_ALIGN_CENTER);
     lv_label_set_text(ui_PreChargerV, "12.2");
@@ -443,7 +438,7 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_remove_style_all(ui_ContactorColumnContainer);
     lv_obj_set_width(ui_ContactorColumnContainer, 1);
     lv_obj_set_height(ui_ContactorColumnContainer, 225);
-    lv_obj_set_x(ui_ContactorColumnContainer, -65);
+    lv_obj_set_x(ui_ContactorColumnContainer, -58);
     lv_obj_set_y(ui_ContactorColumnContainer, -5);
     lv_obj_set_align(ui_ContactorColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_ContactorColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
@@ -457,8 +452,8 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_remove_style_all(ui_StateColumnContainer);
     lv_obj_set_width(ui_StateColumnContainer, 1);
     lv_obj_set_height(ui_StateColumnContainer, 225);
-    lv_obj_set_x(ui_StateColumnContainer, 4);
-    lv_obj_set_y(ui_StateColumnContainer, -6);
+    lv_obj_set_x(ui_StateColumnContainer, 16);
+    lv_obj_set_y(ui_StateColumnContainer, -5);
     lv_obj_set_align(ui_StateColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_StateColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_StateColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -471,7 +466,7 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_remove_style_all(ui_HeartbeatColumnContainer);
     lv_obj_set_width(ui_HeartbeatColumnContainer, 1);
     lv_obj_set_height(ui_HeartbeatColumnContainer, 225);
-    lv_obj_set_x(ui_HeartbeatColumnContainer, 49);
+    lv_obj_set_x(ui_HeartbeatColumnContainer, 62);
     lv_obj_set_y(ui_HeartbeatColumnContainer, -6);
     lv_obj_set_align(ui_HeartbeatColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_HeartbeatColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
@@ -485,8 +480,8 @@ void ui_Contactor_Screen_screen_init(void)
     lv_obj_remove_style_all(ui_AmpColumnContainer);
     lv_obj_set_width(ui_AmpColumnContainer, 1);
     lv_obj_set_height(ui_AmpColumnContainer, 225);
-    lv_obj_set_x(ui_AmpColumnContainer, 97);
-    lv_obj_set_y(ui_AmpColumnContainer, -6);
+    lv_obj_set_x(ui_AmpColumnContainer, 109);
+    lv_obj_set_y(ui_AmpColumnContainer, -5);
     lv_obj_set_align(ui_AmpColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_AmpColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_AmpColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);

@@ -13,48 +13,48 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     ui_MainPowerSwitchPanel = lv_obj_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_MainPowerSwitchPanel, 56);
     lv_obj_set_height(ui_MainPowerSwitchPanel, 38);
-    lv_obj_set_x(ui_MainPowerSwitchPanel, -101);
-    lv_obj_set_y(ui_MainPowerSwitchPanel, -60);
+    lv_obj_set_x(ui_MainPowerSwitchPanel, 94);
+    lv_obj_set_y(ui_MainPowerSwitchPanel, -66);
     lv_obj_set_align(ui_MainPowerSwitchPanel, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_MainPowerSwitchPanel, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_MainPowerSwitchVal = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_MainPowerSwitchVal, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MainPowerSwitchVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MainPowerSwitchVal, -102);
-    lv_obj_set_y(ui_MainPowerSwitchVal, -60);
+    lv_obj_set_x(ui_MainPowerSwitchVal, 94);
+    lv_obj_set_y(ui_MainPowerSwitchVal, -66);
     lv_obj_set_align(ui_MainPowerSwitchVal, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MainPowerSwitchVal, "OFF");
 
     ui_MainPowerSwitchLabel = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_MainPowerSwitchLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MainPowerSwitchLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MainPowerSwitchLabel, 1);
-    lv_obj_set_y(ui_MainPowerSwitchLabel, -59);
+    lv_obj_set_x(ui_MainPowerSwitchLabel, 86);
+    lv_obj_set_y(ui_MainPowerSwitchLabel, -37);
     lv_obj_set_align(ui_MainPowerSwitchLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_MainPowerSwitchLabel, "Main Power Switch");
 
     ui_EN1Panel = lv_obj_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_EN1Panel, 56);
     lv_obj_set_height(ui_EN1Panel, 38);
-    lv_obj_set_x(ui_EN1Panel, -100);
-    lv_obj_set_y(ui_EN1Panel, -14);
+    lv_obj_set_x(ui_EN1Panel, 94);
+    lv_obj_set_y(ui_EN1Panel, 73);
     lv_obj_set_align(ui_EN1Panel, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_EN1Panel, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_EN1Val = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_EN1Val, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_EN1Val, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_EN1Val, -101);
-    lv_obj_set_y(ui_EN1Val, -14);
+    lv_obj_set_x(ui_EN1Val, 94);
+    lv_obj_set_y(ui_EN1Val, 74);
     lv_obj_set_align(ui_EN1Val, LV_ALIGN_CENTER);
     lv_label_set_text(ui_EN1Val, "OFF");
 
     ui_EN1Label = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_EN1Label, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_EN1Label, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_EN1Label, -52);
-    lv_obj_set_y(ui_EN1Label, -14);
+    lv_obj_set_x(ui_EN1Label, 95);
+    lv_obj_set_y(ui_EN1Label, 105);
     lv_obj_set_align(ui_EN1Label, LV_ALIGN_CENTER);
     lv_label_set_text(ui_EN1Label, "EN1");
 
@@ -82,8 +82,8 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_DCDCOnCheck, "DCDC On");
     lv_obj_set_width(ui_DCDCOnCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_DCDCOnCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_DCDCOnCheck, 97);
-    lv_obj_set_y(ui_DCDCOnCheck, 55);
+    lv_obj_set_x(ui_DCDCOnCheck, -103);
+    lv_obj_set_y(ui_DCDCOnCheck, -21);
     lv_obj_set_align(ui_DCDCOnCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_DCDCOnCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_DCDCOnCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
@@ -102,8 +102,8 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_ChargeOnCheck, "Charge On");
     lv_obj_set_width(ui_ChargeOnCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeOnCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeOnCheck, 102);
-    lv_obj_set_y(ui_ChargeOnCheck, 81);
+    lv_obj_set_x(ui_ChargeOnCheck, -99);
+    lv_obj_set_y(ui_ChargeOnCheck, -46);
     lv_obj_set_align(ui_ChargeOnCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_ChargeOnCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_ChargeOnCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
@@ -121,24 +121,24 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     ui_KeyPanel = lv_obj_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_KeyPanel, 56);
     lv_obj_set_height(ui_KeyPanel, 38);
-    lv_obj_set_x(ui_KeyPanel, 47);
-    lv_obj_set_y(ui_KeyPanel, -14);
+    lv_obj_set_x(ui_KeyPanel, 94);
+    lv_obj_set_y(ui_KeyPanel, 5);
     lv_obj_set_align(ui_KeyPanel, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_KeyPanel, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_KeyLabel = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_KeyLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_KeyLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_KeyLabel, 97);
-    lv_obj_set_y(ui_KeyLabel, -14);
+    lv_obj_set_x(ui_KeyLabel, 95);
+    lv_obj_set_y(ui_KeyLabel, 34);
     lv_obj_set_align(ui_KeyLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_KeyLabel, "Key");
 
     ui_KeyVal = lv_label_create(ui_PowerSelectionStatusScreen);
     lv_obj_set_width(ui_KeyVal, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_KeyVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_KeyVal, 47);
-    lv_obj_set_y(ui_KeyVal, -14);
+    lv_obj_set_x(ui_KeyVal, 94);
+    lv_obj_set_y(ui_KeyVal, 6);
     lv_obj_set_align(ui_KeyVal, LV_ALIGN_CENTER);
     lv_label_set_text(ui_KeyVal, "OFF");
 
@@ -146,8 +146,8 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_ChargeLVEnableCheck, "Charge LV Enable");
     lv_obj_set_width(ui_ChargeLVEnableCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeLVEnableCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeLVEnableCheck, 76);
-    lv_obj_set_y(ui_ChargeLVEnableCheck, 107);
+    lv_obj_set_x(ui_ChargeLVEnableCheck, -75);
+    lv_obj_set_y(ui_ChargeLVEnableCheck, -74);
     lv_obj_set_align(ui_ChargeLVEnableCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_ChargeLVEnableCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_ChargeLVEnableCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
@@ -156,8 +156,8 @@ void ui_PowerSelectionStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_AuxBattDisableCheck, "AuxBattDisable");
     lv_obj_set_width(ui_AuxBattDisableCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AuxBattDisableCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AuxBattDisableCheck, 89);
-    lv_obj_set_y(ui_AuxBattDisableCheck, 31);
+    lv_obj_set_x(ui_AuxBattDisableCheck, -83);
+    lv_obj_set_y(ui_AuxBattDisableCheck, 4);
     lv_obj_set_align(ui_AuxBattDisableCheck, LV_ALIGN_CENTER);
     lv_obj_add_state(ui_AuxBattDisableCheck, LV_STATE_CHECKED);       /// States
     lv_obj_add_flag(ui_AuxBattDisableCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
