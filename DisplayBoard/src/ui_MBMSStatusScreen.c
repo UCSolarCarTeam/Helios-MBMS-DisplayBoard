@@ -66,7 +66,7 @@ void ui_MBMSStatusScreen_screen_init(void)
     ui_StartupStateLabel = lv_label_create(ui_MBMSStatusScreen);
     lv_obj_set_width(ui_StartupStateLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_StartupStateLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_StartupStateLabel, 104);
+    lv_obj_set_x(ui_StartupStateLabel, 100);
     lv_obj_set_y(ui_StartupStateLabel, -62);
     lv_obj_set_align(ui_StartupStateLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_StartupStateLabel, "Startup State");
