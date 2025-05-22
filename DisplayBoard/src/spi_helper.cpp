@@ -1,7 +1,4 @@
-#include <string.h>
-#include "driver/spi_slave.h"
-#include "driver/gpio.h"
-#include "esp_log.h"
+#include "spi_helper.h"
 
 #define PIN_MISO 19
 #define PIN_MOSI 23
@@ -10,9 +7,8 @@
 
 #define MAX_TRANSFER_SIZE 138 // Adjust based on expected data size
 
-static const char *TAG = "SPI_SLAVE";
-
-void app_main(void)
+// Function to initialize the SPI slave interface
+esp_err_t setupSPI()
 {
     // Configure SPI bus
     spi_bus_config_t buscfg = {
@@ -31,40 +27,53 @@ void app_main(void)
         .mode = 0, // SPI mode 0: CPOL=0, CPHA=0
         .post_setup_cb = nullptr,
         .post_trans_cb = nullptr};
-        
+
     // Initialize SPI slave interface
     esp_err_t ret = spi_slave_initialize(HSPI_HOST, &buscfg, &slvcfg, SPI_DMA_CH_AUTO);
     if (ret != ESP_OK)
     {
-        ESP_LOGE(TAG, "Failed to initialize SPI slave: %s", esp_err_to_name(ret));
-        return;
+        Serial.printf("Failed to initialize SPI slave: %s", esp_err_to_name(ret));
     }
+    return ret;
+}
 
-    // Buffers for receiving data
-    uint8_t recvbuf[MAX_TRANSFER_SIZE] = {0};
-    spi_slave_transaction_t t;
-
-    while (true)
+// Function to receive SPI message
+esp_err_t receiveSPIMessage(uint8_t *recvbuf, size_t bufsize, size_t *received_len)
+{
+    if (!recvbuf || bufsize == 0)
     {
-        memset(&t, 0, sizeof(t));
-        t.length = MAX_TRANSFER_SIZE * 8; // Length in bits
-        t.rx_buffer = recvbuf;
-
-        // Wait for a transaction from the master
-        ret = spi_slave_transmit(HSPI_HOST, &t, portMAX_DELAY);
-        if (ret == ESP_OK)
-        {
-            // Process received data
-            ESP_LOGI(TAG, "Received %d bytes:", t.trans_len / 8);
-            for (int i = 0; i < t.trans_len / 8; ++i)
-            {
-                printf("%02X ", recvbuf[i]);
-            }
-            printf("\n");
-        }
-        else
-        {
-            ESP_LOGE(TAG, "SPI transmission failed: %s", esp_err_to_name(ret));
-        }
+        Serial.printf("Invalid receive buffer");
+        return ESP_ERR_INVALID_ARG;
     }
+
+    spi_slave_transaction_t t;
+    memset(&t, 0, sizeof(t));
+    t.length = bufsize * 8; // Length in bits
+    t.rx_buffer = recvbuf;
+
+    // Wait for a transaction from the master
+    esp_err_t ret = spi_slave_transmit(HSPI_HOST, &t, portMAX_DELAY);
+    if (ret == ESP_OK)
+    {
+        if (received_len)
+        {
+            *received_len = t.trans_len / 8;
+        }
+
+        // Print the received message
+        Serial.print("Received message: ");
+        for (int i = 0; i < (*received_len); i++)
+        {
+            // Serial.print((char)recvbuf[i]); // Print as characters
+            // Alternatively, to print as hex values:
+            Serial.print(recvbuf[i], HEX);
+            Serial.print(" ");
+        }
+        Serial.println(); // New line after printing
+    }
+    else
+    {
+        Serial.printf("SPI transmission failed: %s", esp_err_to_name(ret));
+    }
+    return ret;
 }

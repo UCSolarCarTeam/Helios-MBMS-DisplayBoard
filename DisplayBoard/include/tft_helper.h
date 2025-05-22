@@ -1,3 +1,5 @@
+#pragma once
+
 #include "ui.h"
 #include "lvgl.h"
 #include <Arduino.h>
