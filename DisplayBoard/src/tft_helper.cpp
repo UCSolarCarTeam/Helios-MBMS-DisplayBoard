@@ -49,86 +49,69 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_ChargeLVEnableCheck, LV_STATE_CHECKED);
 }
 
-void my_touchpad_read(lv_indev_drv_t * indev_driver, lv_indev_data_t * data) {
-  if (touchscreen.touched()) {
-    TS_Point p = touchscreen.getPoint();
-    data->point.x = p.x;
-    data->point.y = p.y;
-    Serial.print("X: ");
-    Serial.print(data->point.x);
-    Serial.print(" Y: "); 
-    Serial.print(data->point.y);
-    data->state = LV_INDEV_STATE_PR;
-  } else {
-    data->state = LV_INDEV_STATE_REL;
-  }
+void printTouchToSerial(int touchX, int touchY, int touchZ) {
+  Serial.print("X = ");
+  Serial.print(touchX);
+  Serial.print(" | Y = ");
+  Serial.print(touchY);
+  Serial.print(" | Pressure = ");
+  Serial.print(touchZ);
+  Serial.println();
 }
 
-void calibrateTouch() {
-  tftDisplay.init();
-  tftDisplay.setRotation(1);
-  tftDisplay.fillScreen(TFT_BLACK);
-  tftDisplay.setTextColor(TFT_WHITE, TFT_BLACK);
-  tftDisplay.setTextSize(2);
 
-  // Top-left corner
-  tftDisplay.fillScreen(TFT_BLACK);
-  tftDisplay.setCursor(20, 50);
-  tftDisplay.println("Touch the");
-  tftDisplay.setCursor(20, 80);
-  tftDisplay.println("TOP-LEFT corner");
-  tftDisplay.fillCircle(10, 10, 5, TFT_RED); // Visual indicator
-  
-  while (!touchscreen.touched()) {}
-  TS_Point p1 = touchscreen.getPoint();
-  while (touchscreen.touched()) {} // Wait for release
-  delay(200);
+void handleScreenTransition(int x, int y) {
+    // Check if the touch coordinates are within the bounds of the buttons
+    if(!atHomeScreen){
+      atHomeScreen = true;
+      lv_scr_load(ui_HomeScreen);
+      delay(20);
+    }
 
-  // Bottom-right corner
-  tftDisplay.fillScreen(TFT_BLACK);
-  tftDisplay.setCursor(20, 50);
-  tftDisplay.println("Touch the");
-  tftDisplay.setCursor(20, 80);
-  tftDisplay.println("BOTTOM-RIGHT corner");
-  tftDisplay.fillCircle(310, 230, 5, TFT_RED); // Visual indicator
-  
-  while (!touchscreen.touched()) {}
-  TS_Point p2 = touchscreen.getPoint();
-  while (touchscreen.touched()) {} // Wait for release
-  delay(200);
 
-  // Calculate calibration values
-  int min_x = min(p1.x, p2.x);
-  int max_x = max(p1.x, p2.x);
-  int min_y = min(p1.y, p2.y);
-  int max_y = max(p1.y, p2.y);
+    atHomeScreen = false;
+    for(const auto& button : buttons) {
+        if (button.contains(x, y)) {
+            switch (button.id) {
+                case BUTTON_ID::CONTACTOR_AND_PRECHARGER_STATUS:
+                    Serial.println("Transitioning to Contactor & Precharger Status screen");
+                    lv_scr_load(ui_Contactor_Screen);
+                    break;
+                case BUTTON_ID::TRIP_STATUS:
+                    Serial.println("Transitioning to Trip Status screen");
+                    lv_scr_load(ui_TripScreen);
+                    break;
+                case BUTTON_ID::BATTERY_INFO:
+                    Serial.println("Transitioning to Battery Info screen");
+                    lv_scr_load(ui_BatteryInfoScreen);
+                    break;
+                case BUTTON_ID::POWER_STATUS:
+                    Serial.println("Transitioning to Power Selection Status screen");
+                    lv_scr_load(ui_PowerSelectionStatusScreen);
+                    break;
+                case BUTTON_ID::MBMS_STATUS:
+                    Serial.println("Transitioning to MBMS Status screen");
+                    lv_scr_load(ui_MBMSStatusScreen);
+                    break;
+                default:
+                    break;
+            }
+            break; // Exit the loop once a button is found
+        }
+    }
 
-  // Show results on screen
-  tftDisplay.fillScreen(TFT_BLACK);
-  tftDisplay.setCursor(10, 30);
-  tftDisplay.println("Calibration Complete");
-  
-  tftDisplay.setCursor(10, 70);
-  tftDisplay.print("X: ");
-  tftDisplay.print(min_x);
-  tftDisplay.print(" - ");
-  tftDisplay.println(max_x);
-  
-  tftDisplay.setCursor(10, 100);
-  tftDisplay.print("Y: ");
-  tftDisplay.print(min_y);
-  tftDisplay.print(" - ");
-  tftDisplay.println(max_y);
+    delay(20);
+}
 
-  tftDisplay.setCursor(10, 150);
-  tftDisplay.println("Use these values in");
-  tftDisplay.setCursor(10, 180);
-  tftDisplay.println("your map() function");
+void handleTouchscreen(){
+    TS_Point p = touchscreen.getPoint();
+    // Calibrate Touchscreen points with map function to the correct width and height
+    int x = map(p.x, touch_min_x, touch_max_x, 0, TFT_HEIGHT-1);
+    int y = map(p.y, touch_min_y, touch_max_y, TFT_WIDTH-1, 0);
+    int z = p.z;
 
-  // Also print to Serial for reference
-  Serial.println("Calibration values:");
-  Serial.print("X range: "); Serial.print(min_x); Serial.print(" - "); Serial.println(max_x);
-  Serial.print("Y range: "); Serial.print(min_y); Serial.print(" - "); Serial.println(max_y);
+    printTouchToSerial(x, y, z);
+    handleScreenTransition(x , y);
 }
 
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
@@ -183,15 +166,8 @@ void tft_init(void){
   disp_drv.draw_buf = &draw_buf;     // Assign the buffer to the driver
   lv_disp_drv_register(&disp_drv);   // Register the driver
 
-  lv_indev_drv_t indev_drv;
-  lv_indev_drv_init(&indev_drv);
-  indev_drv.type = LV_INDEV_TYPE_POINTER;
-  indev_drv.read_cb = my_touchpad_read;
-  lv_indev_drv_register(&indev_drv);
-
   pinMode(19,OUTPUT);
   digitalWrite(19,HIGH);
 
   ui_init();
-  calibrateTouch();
 }

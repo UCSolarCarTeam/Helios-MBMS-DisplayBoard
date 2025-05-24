@@ -12,6 +12,8 @@ TFT_eSPI tftDisplay = TFT_eSPI();
 XPT2046_Touchscreen touchscreen(XPT2046_CS, XPT2046_IRQ);
 SPIClass touchscreenSPI = SPIClass(VSPI);
 
+volatile bool atHomeScreen = true;
+
 void setup(){
   Serial.begin(115200);
 
@@ -29,6 +31,11 @@ void loop(){
   // uint8_t recvbuf[MAX_TRANSFER_SIZE];
   // size_t received_len = 0;
   // receiveSPIMessage(recvbuf, sizeof(recvbuf), &received_len);
+
+  if (touchscreen.tirqTouched() && touchscreen.touched()) {
+    // Get Touchscreen points
+    handleTouchscreen();
+  }
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
