@@ -60,16 +60,24 @@ void printTouchToSerial(int touchX, int touchY, int touchZ) {
 }
 
 
+void wait_for_touch_release() {
+    while (touchscreen.touched()) {
+        delay(10); // Small delay to prevent CPU hogging
+    }
+}
+
 void handleScreenTransition(int x, int y) {
+    Serial.println("At Home screen: " + String(atHomeScreen));
     // Check if the touch coordinates are within the bounds of the buttons
     if(!atHomeScreen){
       atHomeScreen = true;
       lv_scr_load(ui_HomeScreen);
+      wait_for_touch_release();
       delay(20);
+      return;
     }
 
 
-    atHomeScreen = false;
     for(const auto& button : buttons) {
         if (button.contains(x, y)) {
             switch (button.id) {
@@ -96,6 +104,9 @@ void handleScreenTransition(int x, int y) {
                 default:
                     break;
             }
+
+            wait_for_touch_release(); // Wait for touch release before proceeding
+            atHomeScreen = false;
             break; // Exit the loop once a button is found
         }
     }
