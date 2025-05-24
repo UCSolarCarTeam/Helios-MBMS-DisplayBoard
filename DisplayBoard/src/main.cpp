@@ -6,33 +6,17 @@
 #include "ui.h"
 #include "tft_helper.h"
 #include "spi_helper.h"
-
-TFT_eSPI tftDisplay = TFT_eSPI();
-
 #include <XPT2046_Touchscreen.h>
 
-
-//PRODUCTION PIN DEFINITIONS
-// #define XPT2046_IRQ 36   // T_IRQ
-// #define XPT2046_MOSI 32  // T_DIN
-// #define XPT2046_MISO 39  // T_OUT
-// #define XPT2046_CLK 25   // T_CLK
-// #define XPT2046_CS 33    // T_CS
-
-//PERFBOARD PIN DEFINITIONS
-#define XPT2046_IRQ 36   // T_IRQ
-#define XPT2046_MOSI 23  // T_DIN
-#define XPT2046_MISO 21  // T_OUT
-#define XPT2046_CLK 18   // T_CLK
-#define XPT2046_CS 33    // T_CS
-
-
+TFT_eSPI tftDisplay = TFT_eSPI();
+XPT2046_Touchscreen touchscreen(XPT2046_CS, XPT2046_IRQ);
+SPIClass touchscreenSPI = SPIClass(HSPI);
 
 void setup(){
   Serial.begin(115200);
 
   tft_init();
-  setupSPI();
+  //setupSPI();
 
   Serial.println("UI initialized, switching screens");
   lv_scr_load(ui_PowerSelectionStatusScreen);
