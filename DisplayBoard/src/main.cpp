@@ -10,7 +10,7 @@
 
 TFT_eSPI tftDisplay = TFT_eSPI();
 XPT2046_Touchscreen touchscreen(XPT2046_CS, XPT2046_IRQ);
-SPIClass touchscreenSPI = SPIClass(HSPI);
+SPIClass touchscreenSPI = SPIClass(VSPI);
 
 void setup(){
   Serial.begin(115200);
@@ -19,16 +19,16 @@ void setup(){
   //setupSPI();
 
   Serial.println("UI initialized, switching screens");
-  lv_scr_load(ui_PowerSelectionStatusScreen);
+  lv_scr_load(ui_HomeScreen);
   lv_refr_now(NULL);  
   clearAllCheckMarks();
 }
 
 void loop(){
 
-  uint8_t recvbuf[MAX_TRANSFER_SIZE];
-  size_t received_len = 0;
-  receiveSPIMessage(recvbuf, sizeof(recvbuf), &received_len);
+  // uint8_t recvbuf[MAX_TRANSFER_SIZE];
+  // size_t received_len = 0;
+  // receiveSPIMessage(recvbuf, sizeof(recvbuf), &received_len);
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);

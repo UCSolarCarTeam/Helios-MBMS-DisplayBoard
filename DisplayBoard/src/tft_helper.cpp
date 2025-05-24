@@ -49,6 +49,20 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_ChargeLVEnableCheck, LV_STATE_CHECKED);
 }
 
+void my_touchpad_read(lv_indev_drv_t * indev_driver, lv_indev_data_t * data) {
+  if (touchscreen.touched()) {
+    TS_Point p = touchscreen.getPoint();
+    data->point.x = p.x;
+    data->point.y = p.y;
+    Serial.print("X: ");
+    Serial.print(data->point.x);
+    Serial.print(" Y: "); 
+    Serial.print(data->point.y);
+    data->state = LV_INDEV_STATE_PR;
+  } else {
+    data->state = LV_INDEV_STATE_REL;
+  }
+}
 
 
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
@@ -98,6 +112,12 @@ void tft_init(void){
   disp_drv.flush_cb = my_disp_flush; // Set flush callback
   disp_drv.draw_buf = &draw_buf;     // Assign the buffer to the driver
   lv_disp_drv_register(&disp_drv);   // Register the driver
+
+  lv_indev_drv_t indev_drv;
+  lv_indev_drv_init(&indev_drv);
+  indev_drv.type = LV_INDEV_TYPE_POINTER;
+  indev_drv.read_cb = my_touchpad_read;
+  lv_indev_drv_register(&indev_drv);
 
   pinMode(19,OUTPUT);
   digitalWrite(19,HIGH);

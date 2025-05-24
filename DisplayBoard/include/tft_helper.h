@@ -11,11 +11,16 @@
 extern TFT_eSPI tftDisplay;
 extern SPIClass touchscreenSPI;
 
+// #define XPT2046_IRQ 36   // T_IRQ
+// #define XPT2046_MOSI 13  // T_DIN
+// #define XPT2046_MISO 12  // T_OUT
+// #define XPT2046_CLK 14   // T_CLK
+// #define XPT2046_CS 33    // T_CS
 
 #define XPT2046_IRQ 36   // T_IRQ
-#define XPT2046_MOSI 13  // T_DIN
-#define XPT2046_MISO 12  // T_OUT
-#define XPT2046_CLK 14   // T_CLK
+#define XPT2046_MOSI 32  // T_DIN
+#define XPT2046_MISO 39  // T_OUT
+#define XPT2046_CLK 25   // T_CLK
 #define XPT2046_CS 33    // T_CS
 
 extern XPT2046_Touchscreen touchscreen;
