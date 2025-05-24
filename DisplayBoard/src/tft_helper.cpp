@@ -64,13 +64,75 @@ void my_touchpad_read(lv_indev_drv_t * indev_driver, lv_indev_data_t * data) {
   }
 }
 
+void calibrateTouch() {
+  tftDisplay.init();
+  tftDisplay.setRotation(1);
+  tftDisplay.fillScreen(TFT_BLACK);
+  tftDisplay.setTextColor(TFT_WHITE, TFT_BLACK);
+  tftDisplay.setTextSize(2);
+
+  // Top-left corner
+  tftDisplay.fillScreen(TFT_BLACK);
+  tftDisplay.setCursor(20, 50);
+  tftDisplay.println("Touch the");
+  tftDisplay.setCursor(20, 80);
+  tftDisplay.println("TOP-LEFT corner");
+  tftDisplay.fillCircle(10, 10, 5, TFT_RED); // Visual indicator
+  
+  while (!touchscreen.touched()) {}
+  TS_Point p1 = touchscreen.getPoint();
+  while (touchscreen.touched()) {} // Wait for release
+  delay(200);
+
+  // Bottom-right corner
+  tftDisplay.fillScreen(TFT_BLACK);
+  tftDisplay.setCursor(20, 50);
+  tftDisplay.println("Touch the");
+  tftDisplay.setCursor(20, 80);
+  tftDisplay.println("BOTTOM-RIGHT corner");
+  tftDisplay.fillCircle(310, 230, 5, TFT_RED); // Visual indicator
+  
+  while (!touchscreen.touched()) {}
+  TS_Point p2 = touchscreen.getPoint();
+  while (touchscreen.touched()) {} // Wait for release
+  delay(200);
+
+  // Calculate calibration values
+  int min_x = min(p1.x, p2.x);
+  int max_x = max(p1.x, p2.x);
+  int min_y = min(p1.y, p2.y);
+  int max_y = max(p1.y, p2.y);
+
+  // Show results on screen
+  tftDisplay.fillScreen(TFT_BLACK);
+  tftDisplay.setCursor(10, 30);
+  tftDisplay.println("Calibration Complete");
+  
+  tftDisplay.setCursor(10, 70);
+  tftDisplay.print("X: ");
+  tftDisplay.print(min_x);
+  tftDisplay.print(" - ");
+  tftDisplay.println(max_x);
+  
+  tftDisplay.setCursor(10, 100);
+  tftDisplay.print("Y: ");
+  tftDisplay.print(min_y);
+  tftDisplay.print(" - ");
+  tftDisplay.println(max_y);
+
+  tftDisplay.setCursor(10, 150);
+  tftDisplay.println("Use these values in");
+  tftDisplay.setCursor(10, 180);
+  tftDisplay.println("your map() function");
+
+  // Also print to Serial for reference
+  Serial.println("Calibration values:");
+  Serial.print("X range: "); Serial.print(min_x); Serial.print(" - "); Serial.println(max_x);
+  Serial.print("Y range: "); Serial.print(min_y); Serial.print(" - "); Serial.println(max_y);
+}
 
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
-
-  touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
-  touchscreen.begin(touchscreenSPI);
-  touchscreen.setRotation(1); 
 
   uint16_t c;
 
@@ -94,6 +156,14 @@ void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color
 
 void tft_init(void){
   lv_init(); // Initialize LVGL
+
+  touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
+  if(touchscreen.begin(touchscreenSPI)){
+    Serial.println("Touchscreen initialized successfully");
+  } else {
+    Serial.println("Touchscreen initialization failed");
+  }
+  touchscreen.setRotation(1); 
 
   // Start the tft display
   tftDisplay.init();
@@ -123,5 +193,5 @@ void tft_init(void){
   digitalWrite(19,HIGH);
 
   ui_init();
-
+  calibrateTouch();
 }
