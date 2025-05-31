@@ -49,81 +49,6 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_ChargeLVEnableCheck, LV_STATE_CHECKED);
 }
 
-void printTouchToSerial(int touchX, int touchY, int touchZ) {
-  Serial.print("X = ");
-  Serial.print(touchX);
-  Serial.print(" | Y = ");
-  Serial.print(touchY);
-  Serial.print(" | Pressure = ");
-  Serial.print(touchZ);
-  Serial.println();
-}
-
-
-void wait_for_touch_release() {
-    while (touchscreen.touched()) {
-        delay(10); // Small delay to prevent CPU hogging
-    }
-}
-
-void handleScreenTransition(int x, int y) {
-    Serial.println("At Home screen: " + String(atHomeScreen));
-    // Check if the touch coordinates are within the bounds of the buttons
-    if(!atHomeScreen){
-      atHomeScreen = true;
-      lv_scr_load(ui_HomeScreen);
-      wait_for_touch_release();
-      delay(20);
-      return;
-    }
-
-
-    for(const auto& button : buttons) {
-        if (button.contains(x, y)) {
-            switch (button.id) {
-                case BUTTON_ID::CONTACTOR_AND_PRECHARGER_STATUS:
-                    Serial.println("Transitioning to Contactor & Precharger Status screen");
-                    lv_scr_load(ui_Contactor_Screen);
-                    break;
-                case BUTTON_ID::TRIP_STATUS:
-                    Serial.println("Transitioning to Trip Status screen");
-                    lv_scr_load(ui_TripScreen);
-                    break;
-                case BUTTON_ID::BATTERY_INFO:
-                    Serial.println("Transitioning to Battery Info screen");
-                    lv_scr_load(ui_BatteryInfoScreen);
-                    break;
-                case BUTTON_ID::POWER_STATUS:
-                    Serial.println("Transitioning to Power Selection Status screen");
-                    lv_scr_load(ui_PowerSelectionStatusScreen);
-                    break;
-                case BUTTON_ID::MBMS_STATUS:
-                    Serial.println("Transitioning to MBMS Status screen");
-                    lv_scr_load(ui_MBMSStatusScreen);
-                    break;
-                default:
-                    break;
-            }
-
-            wait_for_touch_release(); // Wait for touch release before proceeding
-            atHomeScreen = false;
-            break; // Exit the loop once a button is found
-        }
-    }
-
-    delay(20);
-}
-
-void handleTouchscreen(){
-    TS_Point p = touchscreen.getPoint();
-    // Calibrate Touchscreen points with map function to the correct width and height
-    int x = map(p.x, touch_min_x, touch_max_x, 0, TFT_HEIGHT-1);
-    int y = map(p.y, touch_min_y, touch_max_y, TFT_WIDTH-1, 0);
-    int z = p.z;
-
-    printTouchToSerial(x, y, z);
-    handleScreenTransition(x , y);
-}
 
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
@@ -150,14 +75,6 @@ void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color
 
 void tft_init(void){
   lv_init(); // Initialize LVGL
-
-  touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
-  if(touchscreen.begin(touchscreenSPI)){
-    Serial.println("Touchscreen initialized successfully");
-  } else {
-    Serial.println("Touchscreen initialization failed");
-  }
-  touchscreen.setRotation(1); 
 
   // Start the tft display
   tftDisplay.init();
