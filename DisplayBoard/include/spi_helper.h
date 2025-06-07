@@ -32,6 +32,4 @@ extern const size_t QUEUE_SIZE;
 extern uint8_t tx_buf[];
 extern uint8_t rx_buf[];
 
-// void setupSPI();
 
-// void updateBatteryInfoUI(const uint8_t* data, size_t length);

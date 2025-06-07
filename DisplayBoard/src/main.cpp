@@ -43,7 +43,7 @@ void recieveData(){
         }
         Serial.println();
 
-        // updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
+        updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
   }
 }
 

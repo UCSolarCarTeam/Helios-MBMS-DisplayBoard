@@ -8,3 +8,5 @@
 #include "ui.h"
 #include "tft_helper.h"
 #include "spi_helper.h"
+#include "ui_update.h"
+#include "MBMS.h"
