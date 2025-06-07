@@ -1,5 +1,6 @@
 #include "main.h"
 
+ScreenID current_screen = SCREEN_CONTACTOR;
 ESP32SPISlave slave;
 TFT_eSPI tftDisplay = TFT_eSPI();
 

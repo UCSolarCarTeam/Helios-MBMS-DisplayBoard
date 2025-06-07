@@ -1,5 +1,33 @@
 #include "ui_update.h"
 
+lv_obj_t ** screen_list[NUM_SCREENS] = {
+    &ui_Contactor_Screen,
+    &ui_TripScreen,
+    &ui_BatteryInfoScreen,
+    &ui_MBMSStatusScreen,
+    &ui_PowerSelectionStatusScreen
+};
+
+void load_screen(ScreenID screen_id) {
+    if (screen_id >= NUM_SCREENS) return;
+
+    current_screen = screen_id;
+    if (*screen_list[screen_id]) {
+        lv_scr_load(*screen_list[screen_id]);
+    }
+}
+
+void load_next_screen(void) {
+    ScreenID next = (ScreenID)((current_screen + 1) % NUM_SCREENS);
+    load_screen(next);
+}
+
+
+ScreenID get_current_screen(void) {
+    return current_screen;
+}
+
+
 
 void updateBatteryInfoUI(const uint8_t* data, size_t length) {
   if (length != sizeof(BatteryInfo)) return;
