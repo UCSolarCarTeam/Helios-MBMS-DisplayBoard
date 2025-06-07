@@ -11,12 +11,6 @@ constexpr size_t QUEUE_SIZE = 20;
 uint8_t tx_buf[BUFFER_SIZE] = {0};  // Send dummy data
 uint8_t rx_buf[BUFFER_SIZE] = {0};  // Will hold received bytes
 
-//Might not be needed but defined for clarity
-#define COM_PIN_MISO 27
-
-#define COM_PIN_MOSI 35
-#define COM_PIN_SCLK 22
-#define COM_PIN_CS 21
 
 void setup(){
   Serial.begin(115200);
@@ -30,13 +24,12 @@ void setup(){
   tftDisplay.endWrite();
 
   Serial.println("UI initialized, switching screens");
-  lv_scr_load(ui_HomeScreen);
+  lv_scr_load(ui_BatteryInfoScreen);
   lv_refr_now(NULL);  
   clearAllCheckMarks();
 }
 
-void loop(){
-
+void recieveData(){
    size_t received_bytes = slave.transfer(tx_buf, rx_buf, BUFFER_SIZE);
 
     // Print received bytes
@@ -44,11 +37,19 @@ void loop(){
         Serial.print("Received: ");
         for (size_t i = 0; i < received_bytes; ++i) {
 
-            Serial.print((char)rx_buf[i]);  // or use HEX if preferred
+            // Serial.print((char)rx_buf[i]);  // or use HEX if preferred
+            Serial.printf("%02X ", rx_buf[i]);
             // Serial.print(rx_buf[i], HEX);
         }
         Serial.println();
+
+        // updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
   }
+}
+
+void loop(){
+
+  recieveData(); // Receive data from SPI slave
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
