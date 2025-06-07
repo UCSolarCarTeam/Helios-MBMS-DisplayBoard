@@ -9,8 +9,9 @@ TFT_eSPI tftDisplay = TFT_eSPI();
 
 volatile bool atHomeScreen = true;
 
+//139
 constexpr size_t BUFFER_SIZE = 32;
-constexpr size_t QUEUE_SIZE = 20;
+constexpr size_t QUEUE_SIZE = 10;
 
 uint8_t tx_buf[BUFFER_SIZE] = {0};  // Send dummy data
 uint8_t rx_buf[BUFFER_SIZE] = {0};  // Will hold received bytes
@@ -47,7 +48,7 @@ void recieveData(){
         }
         Serial.println();
 
-        updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
+        // updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
   }
 }
 
