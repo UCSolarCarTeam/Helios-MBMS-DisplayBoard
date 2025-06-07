@@ -1,6 +1,9 @@
 #include "main.h"
 
 ScreenID current_screen = SCREEN_CONTACTOR;
+unsigned long lastScreenChangeTime = 0;
+const unsigned long screenChangeInterval = 7000; // 7 seconds
+
 ESP32SPISlave slave;
 TFT_eSPI tftDisplay = TFT_eSPI();
 
@@ -25,7 +28,7 @@ void setup(){
   tftDisplay.endWrite();
 
   Serial.println("UI initialized, switching screens");
-  lv_scr_load(ui_BatteryInfoScreen);
+  lv_scr_load(ui_Contactor_Screen);
   lv_refr_now(NULL);  
   clearAllCheckMarks();
 }
@@ -51,6 +54,12 @@ void recieveData(){
 void loop(){
 
   recieveData(); // Receive data from SPI slave
+
+  unsigned long currentTime = millis();
+    if (currentTime - lastScreenChangeTime >= screenChangeInterval) {
+        lastScreenChangeTime = currentTime;
+        load_next_screen();  // Cycle to next screen
+    }
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
