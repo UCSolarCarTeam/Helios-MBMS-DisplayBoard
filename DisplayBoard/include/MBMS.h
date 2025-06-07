@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-typedef struct {
+typedef struct __attribute__((packed)){
   int16_t packCurrent;
   uint16_t packVoltage;
   uint8_t packSOC;

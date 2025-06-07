@@ -32,6 +32,7 @@ ScreenID get_current_screen(void) {
 void updateBatteryInfoUI(const uint8_t* data, size_t length) {
   if (length != sizeof(BatteryInfo)) return;
 
+  Serial.println("Updating Battery Info UI...");
   BatteryInfo info;
   memcpy(&info, data, sizeof(BatteryInfo));
 
