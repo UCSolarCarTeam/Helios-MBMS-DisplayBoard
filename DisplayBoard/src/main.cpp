@@ -4,66 +4,79 @@ ScreenID current_screen = SCREEN_CONTACTOR;
 unsigned long lastScreenChangeTime = 0;
 const unsigned long screenChangeInterval = 7000; // 7 seconds
 
-ESP32SPISlave slave;
 TFT_eSPI tftDisplay = TFT_eSPI();
 
-volatile bool atHomeScreen = true;
+// Use VSPI for comms
+volatile bool interrupt = false;
+struct can_frame frame;
+SPIClass *vspi = new SPIClass(VSPI);
 
-//139
-constexpr size_t BUFFER_SIZE = 32;
-constexpr size_t QUEUE_SIZE = 10;
+MCP2515 mcp2515(COM_PIN_CS, SPI_CLOCK_SPEED, vspi);
 
-uint8_t tx_buf[BUFFER_SIZE] = {0};  // Send dummy data
-uint8_t rx_buf[BUFFER_SIZE] = {0};  // Will hold received bytes
+void irqhandler()
+{
+  interrupt = true;
+}
 
-
-void setup(){
+void setup()
+{
   Serial.begin(115200);
+
+  vspi->begin(COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
+  mcp2515.reset();
+  mcp2515.setBitrate(CAN_500KBPS);
+  mcp2515.setNormalMode();
 
   tft_init();
 
-  slave.setDataMode(SPI_MODE0); // Set SPI mode to 0
-  slave.setQueueSize(QUEUE_SIZE); // default: 1
-  slave.begin(VSPI, COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
-
-  tftDisplay.endWrite();
+  attachInterrupt(CAN_PIN_IRQ, irqhandler, FALLING);
 
   Serial.println("UI initialized, switching screens");
   lv_scr_load(ui_Contactor_Screen);
-  lv_refr_now(NULL);  
+  lv_refr_now(NULL);
   clearAllCheckMarks();
 }
 
-void recieveData(){
-   size_t received_bytes = slave.transfer(tx_buf, rx_buf, BUFFER_SIZE);
+void recieveData()
+{
+  interrupt = false; // Reset interrupt flag
 
-    // Print received bytes
-    if (received_bytes > 0) {
-        Serial.print("Received: ");
-        for (size_t i = 0; i < received_bytes; ++i) {
+  uint8_t irq = mcp2515.getInterrupts();
 
-            // Serial.print((char)rx_buf[i]);  // or use HEX if preferred
-            Serial.printf("%02X ", rx_buf[i]);
-            // Serial.print(rx_buf[i], HEX);
-        }
-        Serial.println();
+  if (irq & MCP2515::CANINTF_RX0IF)
+  {
+    if (mcp2515.readMessage(MCP2515::RXB0, &frame) == MCP2515::ERROR_OK)
+    {
+      Serial.println("Received message from RXB0");
+    }
+  }
 
-        // updateBatteryInfoUI(rx_buf, received_bytes); // Update UI with received data
+  if (irq & MCP2515::CANINTF_RX1IF)
+  {
+    if (mcp2515.readMessage(MCP2515::RXB1, &frame) == MCP2515::ERROR_OK)
+    {
+      Serial.println("Received message from RXB1");
+    }
   }
 }
 
-void loop(){
+void loop()
+{
 
-  recieveData(); // Receive data from SPI slave
+  if (interrupt)
+  {
+    recieveData();
+  }
 
   unsigned long currentTime = millis();
-    if (currentTime - lastScreenChangeTime >= screenChangeInterval) {
-        lastScreenChangeTime = currentTime;
-        load_next_screen();  // Cycle to next screen
-    }
+  if (currentTime - lastScreenChangeTime >= screenChangeInterval)
+  {
+    lastScreenChangeTime = currentTime;
+    load_next_screen(); // Cycle to next screen
+  }
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
   lv_timer_handler(); // Handle LVGL timers
-  delay(5);          // Small delay to allow for task processing
+  delay(5);           // Small delay to allow for task processing
 }
