@@ -2,5 +2,8 @@
 
 
 void processCAN(void){
-    //TODO: 
+    //TODO: Contactor Screen : Name | Precharger State | Contactor State | Line Current | Charge Current
+    //TODO: MBMS Status : Add Car State 
+    //TODO: Battery Info Screen : Low Cell Voltage, High Cell Voltage  
+
 }
