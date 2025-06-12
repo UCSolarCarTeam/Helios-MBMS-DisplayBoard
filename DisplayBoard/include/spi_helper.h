@@ -5,6 +5,7 @@
 #include "lvgl.h"
 #include "MBMS.h"
 #include "ui.h"
+#include "mcp2515.h"
 
 //Might not be needed but defined for clarity
 
@@ -19,3 +20,5 @@
 
 #define SPI_CLOCK_SPEED 1000000 // 1MHz SPI clock speed, adjust as needed
 
+
+void processCAN(void);

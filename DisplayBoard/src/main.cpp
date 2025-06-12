@@ -43,20 +43,16 @@ void recieveData()
 
   uint8_t irq = mcp2515.getInterrupts();
 
-  if (irq & MCP2515::CANINTF_RX0IF)
+  if ((irq & MCP2515::CANINTF_RX0IF) && mcp2515.readMessage(MCP2515::RXB0, &frame) == MCP2515::ERROR_OK)
   {
-    if (mcp2515.readMessage(MCP2515::RXB0, &frame) == MCP2515::ERROR_OK)
-    {
-      Serial.println("Received message from RXB0");
-    }
+    Serial.println("Received message from RXB0");
+    processCAN();
   }
 
-  if (irq & MCP2515::CANINTF_RX1IF)
+  if ((irq & MCP2515::CANINTF_RX1IF) && mcp2515.readMessage(MCP2515::RXB1, &frame) == MCP2515::ERROR_OK)
   {
-    if (mcp2515.readMessage(MCP2515::RXB1, &frame) == MCP2515::ERROR_OK)
-    {
-      Serial.println("Received message from RXB1");
-    }
+    Serial.println("Received message from RXB1");
+    processCAN();
   }
 }
 
