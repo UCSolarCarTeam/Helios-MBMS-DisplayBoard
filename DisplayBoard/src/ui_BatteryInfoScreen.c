@@ -13,8 +13,8 @@ void ui_BatteryInfoScreen_screen_init(void)
     ui_AmphoursLabel = lv_label_create(ui_BatteryInfoScreen);
     lv_obj_set_width(ui_AmphoursLabel, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AmphoursLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AmphoursLabel, 0);
-    lv_obj_set_y(ui_AmphoursLabel, -58);
+    lv_obj_set_x(ui_AmphoursLabel, -100);
+    lv_obj_set_y(ui_AmphoursLabel, 102);
     lv_obj_set_align(ui_AmphoursLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_AmphoursLabel, "Amp-hours");
 
@@ -74,29 +74,21 @@ void ui_BatteryInfoScreen_screen_init(void)
     lv_obj_set_align(ui_HighTempLabel, LV_ALIGN_CENTER);
     lv_label_set_text(ui_HighTempLabel, "High Temp");
 
-    ui_MinCellVoltageLabel = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MinCellVoltageLabel, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MinCellVoltageLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MinCellVoltageLabel, 91);
-    lv_obj_set_y(ui_MinCellVoltageLabel, 61);
-    lv_obj_set_align(ui_MinCellVoltageLabel, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MinCellVoltageLabel, "Min Cell Voltage");
+    ui_LowCellVoltageLabel = lv_label_create(ui_BatteryInfoScreen);
+    lv_obj_set_width(ui_LowCellVoltageLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_LowCellVoltageLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_LowCellVoltageLabel, 91);
+    lv_obj_set_y(ui_LowCellVoltageLabel, 61);
+    lv_obj_set_align(ui_LowCellVoltageLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LowCellVoltageLabel, "Low Cell Voltage");
 
-    ui_MaxPackVoltageLabel = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MaxPackVoltageLabel, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MaxPackVoltageLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MaxPackVoltageLabel, -90);
-    lv_obj_set_y(ui_MaxPackVoltageLabel, 101);
-    lv_obj_set_align(ui_MaxPackVoltageLabel, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MaxPackVoltageLabel, "Max Pack Voltage");
-
-    ui_MinPackVoltageLabel = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MinPackVoltageLabel, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MinPackVoltageLabel, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MinPackVoltageLabel, 92);
-    lv_obj_set_y(ui_MinPackVoltageLabel, 101);
-    lv_obj_set_align(ui_MinPackVoltageLabel, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MinPackVoltageLabel, "Min Pack Voltage");
+    ui_HighCellVoltageLabel = lv_label_create(ui_BatteryInfoScreen);
+    lv_obj_set_width(ui_HighCellVoltageLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_HighCellVoltageLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_HighCellVoltageLabel, 92);
+    lv_obj_set_y(ui_HighCellVoltageLabel, 101);
+    lv_obj_set_align(ui_HighCellVoltageLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_HighCellVoltageLabel, "High Cell Voltage");
 
     ui_DepthofDischargeLabel = lv_label_create(ui_BatteryInfoScreen);
     lv_obj_set_width(ui_DepthofDischargeLabel, LV_SIZE_CONTENT);   /// 1
@@ -119,8 +111,8 @@ void ui_BatteryInfoScreen_screen_init(void)
     ui_AmpHoursVal = lv_label_create(ui_BatteryInfoScreen);
     lv_obj_set_width(ui_AmpHoursVal, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_AmpHoursVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_AmpHoursVal, -1);
-    lv_obj_set_y(ui_AmpHoursVal, -76);
+    lv_obj_set_x(ui_AmpHoursVal, -104);
+    lv_obj_set_y(ui_AmpHoursVal, 86);
     lv_obj_set_align(ui_AmpHoursVal, LV_ALIGN_CENTER);
     lv_label_set_text(ui_AmpHoursVal, "34 Ah");
     lv_obj_set_style_text_color(ui_AmpHoursVal, lv_color_hex(0x668CFC), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -196,35 +188,25 @@ void ui_BatteryInfoScreen_screen_init(void)
     lv_obj_set_style_text_color(ui_MaxCellVoltageVal, lv_color_hex(0xF1FF00), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_MaxCellVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_MinPackVoltageVal = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MinPackVoltageVal, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MinPackVoltageVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MinPackVoltageVal, 89);
-    lv_obj_set_y(ui_MinPackVoltageVal, 86);
-    lv_obj_set_align(ui_MinPackVoltageVal, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MinPackVoltageVal, "24 V");
-    lv_obj_set_style_text_color(ui_MinPackVoltageVal, lv_color_hex(0xF1FF00), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_MinPackVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_HighCellVoltageVal = lv_label_create(ui_BatteryInfoScreen);
+    lv_obj_set_width(ui_HighCellVoltageVal, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_HighCellVoltageVal, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_HighCellVoltageVal, 89);
+    lv_obj_set_y(ui_HighCellVoltageVal, 86);
+    lv_obj_set_align(ui_HighCellVoltageVal, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_HighCellVoltageVal, "24 V");
+    lv_obj_set_style_text_color(ui_HighCellVoltageVal, lv_color_hex(0xF1FF00), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_HighCellVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_MinCellVoltageVal = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MinCellVoltageVal, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MinCellVoltageVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MinCellVoltageVal, 91);
-    lv_obj_set_y(ui_MinCellVoltageVal, 45);
-    lv_obj_set_align(ui_MinCellVoltageVal, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MinCellVoltageVal, "1.8 V");
-    lv_obj_set_style_text_color(ui_MinCellVoltageVal, lv_color_hex(0xD02424), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_MinCellVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    ui_MaxPackVoltageVal = lv_label_create(ui_BatteryInfoScreen);
-    lv_obj_set_width(ui_MaxPackVoltageVal, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_MaxPackVoltageVal, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_MaxPackVoltageVal, -99);
-    lv_obj_set_y(ui_MaxPackVoltageVal, 84);
-    lv_obj_set_align(ui_MaxPackVoltageVal, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MaxPackVoltageVal, "26 V");
-    lv_obj_set_style_text_color(ui_MaxPackVoltageVal, lv_color_hex(0xD02424), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_MaxPackVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_LowCellVoltageVal = lv_label_create(ui_BatteryInfoScreen);
+    lv_obj_set_width(ui_LowCellVoltageVal, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_LowCellVoltageVal, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_LowCellVoltageVal, 91);
+    lv_obj_set_y(ui_LowCellVoltageVal, 45);
+    lv_obj_set_align(ui_LowCellVoltageVal, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_LowCellVoltageVal, "1.8 V");
+    lv_obj_set_style_text_color(ui_LowCellVoltageVal, lv_color_hex(0xD02424), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_LowCellVoltageVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_BatteryInfoHeader = lv_label_create(ui_BatteryInfoScreen);
     lv_obj_set_width(ui_BatteryInfoHeader, LV_SIZE_CONTENT);   /// 1

@@ -22,4 +22,5 @@ void load_next_screen(void);
 ScreenID get_current_screen(void);
 
 
-void updateBatteryInfoUI(const uint8_t* data, size_t length);
+void updateUI(void);
+void updateBatteryInfoUI();

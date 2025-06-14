@@ -130,9 +130,8 @@ extern lv_obj_t * ui_LowTempLabel;
 extern lv_obj_t * ui_MaxCellVoltageLabel;
 extern lv_obj_t * ui_AvgTempLabel;
 extern lv_obj_t * ui_HighTempLabel;
-extern lv_obj_t * ui_MinCellVoltageLabel;
-extern lv_obj_t * ui_MaxPackVoltageLabel;
-extern lv_obj_t * ui_MinPackVoltageLabel;
+extern lv_obj_t * ui_LowCellVoltageLabel;
+extern lv_obj_t * ui_HighCellVoltageLabel;
 extern lv_obj_t * ui_DepthofDischargeLabel;
 extern lv_obj_t * ui_PackCurrentVal;
 extern lv_obj_t * ui_AmpHoursVal;
@@ -143,9 +142,8 @@ extern lv_obj_t * ui_LowTempVal;
 extern lv_obj_t * ui_AvgTempVal;
 extern lv_obj_t * ui_HighTempVal;
 extern lv_obj_t * ui_MaxCellVoltageVal;
-extern lv_obj_t * ui_MinPackVoltageVal;
-extern lv_obj_t * ui_MinCellVoltageVal;
-extern lv_obj_t * ui_MaxPackVoltageVal;
+extern lv_obj_t * ui_HighCellVoltageVal;
+extern lv_obj_t * ui_LowCellVoltageVal;
 extern lv_obj_t * ui_BatteryInfoHeader;
 // CUSTOM VARIABLES
 
@@ -164,7 +162,8 @@ extern lv_obj_t * ui_ChargeSafetyCheck;
 extern lv_obj_t * ui_AuxBatteryVoltageVal;
 extern lv_obj_t * ui_StartupStateVal;
 extern lv_obj_t * ui_MBMSStatusHeader;
-extern lv_obj_t * ui_HighVoltageEnableStateCheck;
+extern lv_obj_t * ui_CarStateLabel;
+extern lv_obj_t * ui_CarStateVal;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_PowerSelectionStatusScreen

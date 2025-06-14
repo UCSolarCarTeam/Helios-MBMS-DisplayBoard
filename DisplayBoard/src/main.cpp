@@ -56,6 +56,8 @@ void recieveData()
     Serial.println("Received message from RXB1");
     processCAN();
   }
+
+  updateUI();
 }
 
 void loop()

@@ -3,10 +3,9 @@
 
 void processCAN(void){
     //TODO: Contactor Screen : Name | Precharger State | Contactor State | Line Current | Charge Current
-    //TODO: MBMS Status : Add Car State 
     //TODO: Battery Info Screen : Low Cell Voltage, High Cell Voltage  
 
-    //TODO : Take this as extended ID to parse 
+    //TODO : Take this as extended ID to parse bits 0-29
     uint16_t id = frame.can_id & 0x7FF;
     const uint8_t* data = frame.data;
     uint8_t len = frame.can_dlc;

@@ -31,8 +31,8 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_OrionCanReceivedCheck, "Orion CAN Received");
     lv_obj_set_width(ui_OrionCanReceivedCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_OrionCanReceivedCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_OrionCanReceivedCheck, -15);
-    lv_obj_set_y(ui_OrionCanReceivedCheck, 48);
+    lv_obj_set_x(ui_OrionCanReceivedCheck, -68);
+    lv_obj_set_y(ui_OrionCanReceivedCheck, 25);
     lv_obj_set_align(ui_OrionCanReceivedCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_OrionCanReceivedCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
@@ -40,8 +40,8 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_DischargeShouldTripCheck, "Discharge Should Trip");
     lv_obj_set_width(ui_DischargeShouldTripCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_DischargeShouldTripCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_DischargeShouldTripCheck, -7);
-    lv_obj_set_y(ui_DischargeShouldTripCheck, 73);
+    lv_obj_set_x(ui_DischargeShouldTripCheck, -59);
+    lv_obj_set_y(ui_DischargeShouldTripCheck, 53);
     lv_obj_set_align(ui_DischargeShouldTripCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_DischargeShouldTripCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
@@ -49,8 +49,8 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_checkbox_set_text(ui_ChargeShouldTripCheck, "Charge Should Trip");
     lv_obj_set_width(ui_ChargeShouldTripCheck, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_ChargeShouldTripCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_ChargeShouldTripCheck, -18);
-    lv_obj_set_y(ui_ChargeShouldTripCheck, 99);
+    lv_obj_set_x(ui_ChargeShouldTripCheck, -69);
+    lv_obj_set_y(ui_ChargeShouldTripCheck, 80);
     lv_obj_set_align(ui_ChargeShouldTripCheck, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_ChargeShouldTripCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
@@ -120,15 +120,23 @@ void ui_MBMSStatusScreen_screen_init(void)
     lv_obj_set_style_text_opa(ui_MBMSStatusHeader, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_MBMSStatusHeader, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_HighVoltageEnableStateCheck = lv_checkbox_create(ui_MBMSStatusScreen);
-    lv_checkbox_set_text(ui_HighVoltageEnableStateCheck, "High Voltage Enable State");
-    lv_obj_set_width(ui_HighVoltageEnableStateCheck, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_HighVoltageEnableStateCheck, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_HighVoltageEnableStateCheck, 7);
-    lv_obj_set_y(ui_HighVoltageEnableStateCheck, 21);
-    lv_obj_set_align(ui_HighVoltageEnableStateCheck, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_HighVoltageEnableStateCheck, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    ui_CarStateLabel = lv_label_create(ui_MBMSStatusScreen);
+    lv_obj_set_width(ui_CarStateLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_CarStateLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_CarStateLabel, 92);
+    lv_obj_set_y(ui_CarStateLabel, 105);
+    lv_obj_set_align(ui_CarStateLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_CarStateLabel, "Car State");
 
+    ui_CarStateVal = lv_label_create(ui_MBMSStatusScreen);
+    lv_obj_set_width(ui_CarStateVal, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_CarStateVal, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_CarStateVal, 94);
+    lv_obj_set_y(ui_CarStateVal, 84);
+    lv_obj_set_align(ui_CarStateVal, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_CarStateVal, "FULLY_OPER.");
+    lv_obj_set_style_text_color(ui_CarStateVal, lv_color_hex(0xF1FF00), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_CarStateVal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
 
 }

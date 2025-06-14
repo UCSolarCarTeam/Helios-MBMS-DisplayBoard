@@ -28,6 +28,18 @@ ScreenID get_current_screen(void) {
 }
 
 
+void updateUI(void){
+    updateBatteryInfoUI();
+}
+
+void updateBatteryInfoUI(void){
+    char buf[32];
+
+    // Update the UI elements with the latest data
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.batteryInfo.packCurrent);
+    lv_label_set_text(ui_PackCurrentVal, buf);
+
+}
 
 // void updateBatteryInfoUI(const uint8_t* data, size_t length) {
 //   if (length != sizeof(BatteryInfo)) return;
