@@ -138,3 +138,22 @@ void mbmsStatusScreenUpdate(void)
     lv_label_set_text(ui_CarStateVal, getCarStateString(screenData.mbmsStatus.systemState));
 
 }
+
+const char* boolToYesNo(bool value) {
+    return value ? "YES" : "NO";
+}
+
+void powerSelectionStatusScreenUpdate(void){
+    setCheckboxState(ui_ExternalShutdownCheck, screenData.powerStatus.externalShutdown);
+    setCheckboxState(ui_DCDCFaultCheck, screenData.powerStatus.nDCDCFault);
+    setCheckboxState(ui_ThreeAmpOverCurrentCheck, screenData.powerStatus.n3A_OC);
+    setCheckboxState(ui_DCDCOnCheck, screenData.powerStatus.nDCDC_On);
+    setCheckboxState(ui_ChargeFaultCheck, screenData.powerStatus.nCHGFault);
+    setCheckboxState(ui_ChargeOnCheck, screenData.powerStatus.nCHG_On);
+    setCheckboxState(ui_ChargeLVEnableCheck, screenData.powerStatus.nCHG_LV_En);
+    setCheckboxState(ui_AuxBattDisableCheck, screenData.powerStatus.abattDisable);
+
+    lv_label_set_text(ui_MainPowerSwitchVal, boolToYesNo(screenData.powerStatus.nMainPowerSwitch));
+    lv_label_set_text(ui_EN1Val, boolToYesNo(screenData.powerStatus.en1));
+    lv_label_set_text(ui_KeyVal, boolToYesNo(screenData.powerStatus.key));
+}
