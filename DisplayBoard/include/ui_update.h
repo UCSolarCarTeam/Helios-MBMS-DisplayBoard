@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <Arduino.h>
-#include "MBMS.h"
+#include "MBMS.hpp"
 #include "lvgl.h"
 #include "ui.h"
 

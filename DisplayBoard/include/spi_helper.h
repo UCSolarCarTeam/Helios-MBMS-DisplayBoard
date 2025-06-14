@@ -3,7 +3,7 @@
 #include "Arduino.h"
 #include <string.h>
 #include "lvgl.h"
-#include "MBMS.h"
+#include "MBMS.hpp"
 #include "ui.h"
 #include "mcp2515.h"
 
@@ -19,6 +19,5 @@
 #define COM_PIN_MISO 3
 
 #define SPI_CLOCK_SPEED 1000000 // 1MHz SPI clock speed, adjust as needed
-
 
 void processCAN(void);
