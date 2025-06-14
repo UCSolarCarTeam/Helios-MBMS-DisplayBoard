@@ -60,15 +60,12 @@ void parseMBMSTrip(const uint8_t* data, TripScreen& status) {
     status.lowTempTrip                 = (raw >> 19) & 0x01;
 }
 
-void parseHeartbeat(const uint8_t* data, BoardStatus* status) {
-    if (status == nullptr) return;
+void parseHeartbeat(const uint8_t* data, BoardStatus &status) {
     uint16_t bits = static_cast<uint16_t>(data[1] << 8 | data[0]);
-    status->heartbeat = bits != 0;
+    status.heartbeat = bits != 0;
 }
 
-void parseContactorBoardStatus(const uint8_t* data, BoardStatus* status, bool ignoreLineCurrent = false) {
-    if (status == nullptr) return;
-
+void parseContactorBoardStatus(const uint8_t* data, BoardStatus &status, bool ignoreLineCurrent = false) {
     // Byte array to 32-bit bitfield
     uint32_t bits = (static_cast<uint32_t>(data[3]) << 24) |
                     (static_cast<uint32_t>(data[2]) << 16) |
@@ -81,13 +78,13 @@ void parseContactorBoardStatus(const uint8_t* data, BoardStatus* status, bool ig
     const bool prechargerError      = bits & (1 << 2);
 
     if (prechargerError) {
-        status->prechargerState = PrechargeState::ERROR;
+        status.prechargerState = PrechargeState::ERROR;
     } else if (prechargerClosing) {
-        status->prechargerState = PrechargeState::CLOSING;
+        status.prechargerState = PrechargeState::CLOSING;
     } else if (prechargerOpenClosed) {
-        status->prechargerState = PrechargeState::CLOSED;
+        status.prechargerState = PrechargeState::CLOSED;
     } else {
-        status->prechargerState = PrechargeState::OPEN;
+        status.prechargerState = PrechargeState::OPEN;
     }
 
     // --- Contactor State ---
@@ -96,27 +93,27 @@ void parseContactorBoardStatus(const uint8_t* data, BoardStatus* status, bool ig
     const bool contactorError      = bits & (1 << 5);
 
     if (contactorError) {
-        status->contactorState = ContactorState::ERROR;
+        status.contactorState = ContactorState::ERROR;
     } else if (contactorClosing) {
-        status->contactorState = ContactorState::CLOSING;
+        status.contactorState = ContactorState::CLOSING;
     } else if (contactorOpenClosed) {
-        status->contactorState = ContactorState::CLOSED;
+        status.contactorState = ContactorState::CLOSED;
     } else {
-        status->contactorState = ContactorState::OPEN;
+        status.contactorState = ContactorState::OPEN;
     }
 
     // --- Line Current (bits 6–17, 12 bits) ---
     uint16_t lineCurrentRaw = static_cast<uint16_t>((bits >> 6) & 0x0FFF);
-    float scalingFactor = 0.1; 
-    if(!ignoreLineCurrent){
-        status->lineCurrent = static_cast<float>(lineCurrentRaw*scalingFactor); // Scale if needed
+    float scalingFactor = 0.1f; 
+    if (!ignoreLineCurrent) {
+        status.lineCurrent = static_cast<float>(lineCurrentRaw * scalingFactor);
     }
 
     // --- Charge Current (bits 18–29, 12 bits) ---
     uint16_t chargeCurrentRaw = static_cast<uint16_t>((bits >> 18) & 0x0FFF);
-    status->chargeCurrent = static_cast<float>(chargeCurrentRaw*scalingFactor); // Scale if needed
+    status.chargeCurrent = static_cast<float>(chargeCurrentRaw * scalingFactor);
 
-    // You can extract bit 30 if needed (e.g., for BPS error), but it's not part of BoardStatus
+    // Bit 30 is ignored here
 }
 
 void parsePackInfo(const uint8_t* data, BatteryInfoScreen& info, BoardStatus& status) {

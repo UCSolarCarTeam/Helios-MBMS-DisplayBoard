@@ -13,6 +13,8 @@ SPIClass *vspi = new SPIClass(VSPI);
 
 MCP2515 mcp2515(COM_PIN_CS, SPI_CLOCK_SPEED, vspi);
 
+ScreenDataDictionary screenData;
+
 void irqhandler()
 {
   interrupt = true;

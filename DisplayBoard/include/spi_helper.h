@@ -6,6 +6,7 @@
 #include "MBMS.hpp"
 #include "ui.h"
 #include "mcp2515.h"
+#include "CAN.hpp"
 
 //Might not be needed but defined for clarity
 
@@ -20,4 +21,5 @@
 
 #define SPI_CLOCK_SPEED 1000000 // 1MHz SPI clock speed, adjust as needed
 
+extern struct can_frame frame;
 void processCAN(void);
