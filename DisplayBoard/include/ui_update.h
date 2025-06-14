@@ -24,3 +24,5 @@ ScreenID get_current_screen(void);
 
 void updateUI(void);
 void updateBatteryInfoUI();
+void mbmsStatusScreenUpdate(void);
+void setCheckboxState(lv_obj_t* checkbox, bool checked);
