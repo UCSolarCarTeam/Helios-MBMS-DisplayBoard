@@ -157,3 +157,31 @@ void powerSelectionStatusScreenUpdate(void){
     lv_label_set_text(ui_EN1Val, boolToYesNo(screenData.powerStatus.en1));
     lv_label_set_text(ui_KeyVal, boolToYesNo(screenData.powerStatus.key));
 }
+
+void tripScreenUpdate(void){
+    setCheckboxState(ui_HighCellVoltageTrip, screenData.tripScreen.highCellVoltageTrip);
+    setCheckboxState(ui_LowCellVoltageTrip, screenData.tripScreen.lowCellVoltageTrip);
+    setCheckboxState(ui_CommonHighCurrTrip, screenData.tripScreen.commonHighCurrentTrip);
+
+    setCheckboxState(ui_MotorHighCurrTrip, screenData.tripScreen.motorHighCurrentTrip);
+    setCheckboxState(ui_ArrayHighCurrTrip, screenData.tripScreen.arrayHighCurrentTrip);
+    setCheckboxState(ui_LVHighCurrTrip, screenData.tripScreen.lvHighCurrentTrip);
+    setCheckboxState(ui_ChargeHighCurrTrip, screenData.tripScreen.chargeHighCurrentTrip);
+    setCheckboxState(ui_ProtectionTrip, screenData.tripScreen.protectionTrip);
+
+    setCheckboxState(ui_OrionMsgTimeoutTrip, screenData.tripScreen.orionMsgTimeoutTrip);
+    setCheckboxState(ui_ContactorDisconnectedUnexpectedlyTrip, screenData.tripScreen.contactorDiscUnexpected);
+    setCheckboxState(ui_ContactorConnectedUnexpectedlyTrip, screenData.tripScreen.contactorConnUnexpected);
+
+
+    setCheckboxState(ui_CommonHeartBeatTrip, screenData.tripScreen.commonHeartbeatDead);
+    setCheckboxState(ui_MotorHeartbeatTrip, screenData.tripScreen.motorHeartbeatDead);
+    setCheckboxState(ui_ArrayHeartbeatTrip, screenData.tripScreen.arrayHeartbeatDead);
+    setCheckboxState(ui_LVHeartBeatTrip, screenData.tripScreen.lvHeartbeatDead);
+    setCheckboxState(ui_ChargeHeartbeatTrip, screenData.tripScreen.chargeHeartbeatDead);
+
+    setCheckboxState(ui_MPSDisabledTrip, screenData.tripScreen.mpsDisabledTrip);
+    setCheckboxState(ui_ESDEnabledTrip, screenData.tripScreen.esdEnabledTrip);
+    setCheckboxState(ui_HighTempTrip, screenData.tripScreen.highTempTrip);
+    setCheckboxState(ui_LowTempTrip, screenData.tripScreen.lowTempTrip);
+}

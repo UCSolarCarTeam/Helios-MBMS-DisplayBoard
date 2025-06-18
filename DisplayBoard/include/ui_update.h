@@ -26,4 +26,5 @@ void updateUI(void);
 void updateBatteryInfoUI();
 void mbmsStatusScreenUpdate(void);
 void powerSelectionStatusScreenUpdate(void);
+void tripScreenUpdate(void);
 void setCheckboxState(lv_obj_t* checkbox, bool checked);
