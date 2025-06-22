@@ -1,57 +1,90 @@
 #include "main.h"
 
-ESP32SPISlave slave;
+ScreenID current_screen = SCREEN_CONTACTOR;
+unsigned long lastScreenChangeTime = 0;
+const unsigned long screenChangeInterval = 7000; // 7 seconds
+
 TFT_eSPI tftDisplay = TFT_eSPI();
 
-volatile bool atHomeScreen = true;
+// Use VSPI for comms
+volatile bool interrupt = false;
+struct can_frame frame;
 
-constexpr size_t BUFFER_SIZE = 32;
-constexpr size_t QUEUE_SIZE = 20;
 
-uint8_t tx_buf[BUFFER_SIZE] = {0};  // Send dummy data
-uint8_t rx_buf[BUFFER_SIZE] = {0};  // Will hold received bytes
+SPIClass vspi = SPIClass(VSPI);
+MCP2515 mcp2515(COM_PIN_CS, SPI_CLOCK_SPEED, &vspi);
 
-//Might not be needed but defined for clarity
-#define COM_PIN_MISO 27
+ScreenDataDictionary screenData;
 
-#define COM_PIN_MOSI 35
-#define COM_PIN_SCLK 22
-#define COM_PIN_CS 21
+void irqhandler()
+{
+  interrupt = true;
+}
 
-void setup(){
+void setup()
+{
   Serial.begin(115200);
+
+  Serial.println("Starting MBMS UI...");
+  Serial.println("Hello");
+
 
   tft_init();
 
-  slave.setDataMode(SPI_MODE0); // Set SPI mode to 0
-  slave.setQueueSize(QUEUE_SIZE); // default: 1
-  slave.begin(VSPI, COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
+  //TODO: VSPI Initialization freezing ESP32 
+  vspi.begin(COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
+  vspi.write16(0xFFFF); // Dummy write to ensure SPI is initialized
+  mcp2515.reset();
+  mcp2515.setBitrate(CAN_500KBPS, MCP_16MHZ);
+  mcp2515.setNormalMode();
 
-  tftDisplay.endWrite();
+  attachInterrupt(CAN_PIN_IRQ, irqhandler, FALLING);
 
   Serial.println("UI initialized, switching screens");
-  lv_scr_load(ui_HomeScreen);
-  lv_refr_now(NULL);  
+  lv_scr_load(ui_Contactor_Screen);
+  lv_refr_now(NULL);
   clearAllCheckMarks();
 }
 
-void loop(){
+void recieveData()
+{
+  interrupt = false; // Reset interrupt flag
 
-   size_t received_bytes = slave.transfer(tx_buf, rx_buf, BUFFER_SIZE);
+  uint8_t irq = mcp2515.getInterrupts();
 
-    // Print received bytes
-    if (received_bytes > 0) {
-        Serial.print("Received: ");
-        for (size_t i = 0; i < received_bytes; ++i) {
+  if ((irq & MCP2515::CANINTF_RX0IF) && mcp2515.readMessage(MCP2515::RXB0, &frame) == MCP2515::ERROR_OK)
+  {
+    Serial.println("Received message from RXB0");
+    processCAN();
+  }
 
-            Serial.print((char)rx_buf[i]);  // or use HEX if preferred
-            // Serial.print(rx_buf[i], HEX);
-        }
-        Serial.println();
+  if ((irq & MCP2515::CANINTF_RX1IF) && mcp2515.readMessage(MCP2515::RXB1, &frame) == MCP2515::ERROR_OK)
+  {
+    Serial.println("Received message from RXB1");
+    processCAN();
+  }
+
+  updateUI();
+}
+
+void loop()
+{
+
+  if (interrupt)
+  {
+    Serial.println("Interrupt received, processing data...");  
+    recieveData();
+  }
+
+  unsigned long currentTime = millis();
+  if (currentTime - lastScreenChangeTime >= screenChangeInterval)
+  {
+    lastScreenChangeTime = currentTime;
+    load_next_screen(); // Cycle to next screen
   }
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
   lv_timer_handler(); // Handle LVGL timers
-  delay(5);          // Small delay to allow for task processing
+  delay(5);           // Small delay to allow for task processing
 }

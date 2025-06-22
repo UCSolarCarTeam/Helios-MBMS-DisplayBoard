@@ -35,7 +35,6 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_ChargeShouldTripCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_StrobeBMSLightCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_AllowChargeCheck, LV_STATE_CHECKED);
-    lv_obj_clear_state(ui_HighVoltageEnableStateCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_AllowDischargeCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_ChargeSafetyCheck, LV_STATE_CHECKED);
 

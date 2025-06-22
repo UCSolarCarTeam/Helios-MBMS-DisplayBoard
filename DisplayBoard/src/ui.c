@@ -117,9 +117,8 @@ lv_obj_t * ui_LowTempLabel;
 lv_obj_t * ui_MaxCellVoltageLabel;
 lv_obj_t * ui_AvgTempLabel;
 lv_obj_t * ui_HighTempLabel;
-lv_obj_t * ui_MinCellVoltageLabel;
-lv_obj_t * ui_MaxPackVoltageLabel;
-lv_obj_t * ui_MinPackVoltageLabel;
+lv_obj_t * ui_LowCellVoltageLabel;
+lv_obj_t * ui_HighCellVoltageLabel;
 lv_obj_t * ui_DepthofDischargeLabel;
 lv_obj_t * ui_PackCurrentVal;
 lv_obj_t * ui_AmpHoursVal;
@@ -130,9 +129,8 @@ lv_obj_t * ui_LowTempVal;
 lv_obj_t * ui_AvgTempVal;
 lv_obj_t * ui_HighTempVal;
 lv_obj_t * ui_MaxCellVoltageVal;
-lv_obj_t * ui_MinPackVoltageVal;
-lv_obj_t * ui_MinCellVoltageVal;
-lv_obj_t * ui_MaxPackVoltageVal;
+lv_obj_t * ui_HighCellVoltageVal;
+lv_obj_t * ui_LowCellVoltageVal;
 lv_obj_t * ui_BatteryInfoHeader;
 // CUSTOM VARIABLES
 
@@ -152,7 +150,8 @@ lv_obj_t * ui_ChargeSafetyCheck;
 lv_obj_t * ui_AuxBatteryVoltageVal;
 lv_obj_t * ui_StartupStateVal;
 lv_obj_t * ui_MBMSStatusHeader;
-lv_obj_t * ui_HighVoltageEnableStateCheck;
+lv_obj_t * ui_CarStateLabel;
+lv_obj_t * ui_CarStateVal;
 // CUSTOM VARIABLES
 
 
