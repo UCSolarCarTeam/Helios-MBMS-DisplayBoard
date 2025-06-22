@@ -33,6 +33,9 @@ ScreenID get_current_screen(void)
 void updateUI(void)
 {
     updateBatteryInfoUI();
+    mbmsStatusScreenUpdate();
+    powerSelectionStatusScreenUpdate();
+    tripScreenUpdate();
 }
 
 void updateBatteryInfoUI(void)
@@ -125,10 +128,9 @@ void mbmsStatusScreenUpdate(void)
 
     setCheckboxState(ui_StrobeBMSLightCheck, screenData.mbmsStatus.strobeBMSLight);
 
-    // TODO: Double check the not of these boolean with Dylan/ Millaine
-    setCheckboxState(ui_AllowChargeCheck, !screenData.mbmsStatus.nChargeEnable);
-    setCheckboxState(ui_AllowDischargeCheck, !screenData.mbmsStatus.nDischargeEnable);
-    setCheckboxState(ui_ChargeSafetyCheck, !screenData.mbmsStatus.nChargeSafety);
+    setCheckboxState(ui_AllowChargeCheck, screenData.mbmsStatus.nChargeEnable);
+    setCheckboxState(ui_AllowDischargeCheck, screenData.mbmsStatus.nDischargeEnable);
+    setCheckboxState(ui_ChargeSafetyCheck, screenData.mbmsStatus.nChargeSafety);
 
     setCheckboxState(ui_OrionCanReceivedCheck, screenData.mbmsStatus.orionCANRx);
     setCheckboxState(ui_DischargeShouldTripCheck, screenData.mbmsStatus.dischargeShouldTrip);

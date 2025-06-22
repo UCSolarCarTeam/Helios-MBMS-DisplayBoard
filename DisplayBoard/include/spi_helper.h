@@ -11,13 +11,16 @@
 //Might not be needed but defined for clarity
 
 //P3 Extended IO
-#define COM_PIN_MOSI 35
+#define COM_PIN_MOSI 27
 #define COM_PIN_SCLK 22
 #define COM_PIN_CS 21
 
 //TX/RX Pins on yellow board 
-#define CAN_PIN_IRQ 1
-#define COM_PIN_MISO 3
+//TX PIN 1
+#define COM_PIN_MISO 1
+
+//RX PIN 3
+#define CAN_PIN_IRQ 3
 
 #define SPI_CLOCK_SPEED 1000000 // 1MHz SPI clock speed, adjust as needed
 

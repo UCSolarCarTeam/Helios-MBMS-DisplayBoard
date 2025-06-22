@@ -9,9 +9,10 @@ TFT_eSPI tftDisplay = TFT_eSPI();
 // Use VSPI for comms
 volatile bool interrupt = false;
 struct can_frame frame;
-SPIClass *vspi = new SPIClass(VSPI);
 
-MCP2515 mcp2515(COM_PIN_CS, SPI_CLOCK_SPEED, vspi);
+
+SPIClass vspi = SPIClass(VSPI);
+MCP2515 mcp2515(COM_PIN_CS, SPI_CLOCK_SPEED, &vspi);
 
 ScreenDataDictionary screenData;
 
@@ -24,12 +25,18 @@ void setup()
 {
   Serial.begin(115200);
 
-  vspi->begin(COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
-  mcp2515.reset();
-  mcp2515.setBitrate(CAN_500KBPS);
-  mcp2515.setNormalMode();
+  Serial.println("Starting MBMS UI...");
+  Serial.println("Hello");
+
 
   tft_init();
+
+  //TODO: VSPI Initialization freezing ESP32 
+  vspi.begin(COM_PIN_SCLK, COM_PIN_MISO, COM_PIN_MOSI, COM_PIN_CS);
+  vspi.write16(0xFFFF); // Dummy write to ensure SPI is initialized
+  mcp2515.reset();
+  mcp2515.setBitrate(CAN_500KBPS, MCP_16MHZ);
+  mcp2515.setNormalMode();
 
   attachInterrupt(CAN_PIN_IRQ, irqhandler, FALLING);
 
@@ -65,6 +72,7 @@ void loop()
 
   if (interrupt)
   {
+    Serial.println("Interrupt received, processing data...");  
     recieveData();
   }
 

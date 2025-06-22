@@ -10,6 +10,7 @@ void processCAN(void){
     const uint8_t* data = frame.data;
     uint8_t len = frame.can_dlc;
 
+    Serial.printf("\nReceived CAN ID: 0x%X, Length: %d, Data: ", id, len);
     switch(id) {
         case 0x102:
             parseMBMSStatus(data, screenData.mbmsStatus);
