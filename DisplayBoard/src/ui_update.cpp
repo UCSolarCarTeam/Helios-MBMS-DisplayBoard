@@ -187,3 +187,70 @@ void tripScreenUpdate(void){
     setCheckboxState(ui_HighTempTrip, screenData.tripScreen.highTempTrip);
     setCheckboxState(ui_LowTempTrip, screenData.tripScreen.lowTempTrip);
 }
+
+inline const char* toString(PrechargeState state) {
+  switch (state) {
+    case PrechargeState::OPEN:    return "OPEN";
+    case PrechargeState::CLOSED:  return "CLOSED";
+    case PrechargeState::CLOSING: return "CLOSING";
+    case PrechargeState::ERROR:   return "ERROR";
+    default:                      return "UNKNOWN";
+  }
+}
+
+inline const char* toString(ContactorState state) {
+  switch (state) {
+    case ContactorState::OPEN:    return "OPEN";
+    case ContactorState::CLOSED:  return "CLOSED";
+    case ContactorState::CLOSING: return "CLOSING";
+    case ContactorState::ERROR:   return "ERROR";
+    default:                      return "UNKNOWN";
+  }
+}
+
+void contactorScreenUpdate(void){
+    setCheckboxState(ui_CommonCheck, screenData.contactorScreen.commonBoard.heartbeat);
+    setCheckboxState(ui_MotorCheck, screenData.contactorScreen.motorBoard.heartbeat);
+    setCheckboxState(ui_ArrayCheck, screenData.contactorScreen.arrayBoard.heartbeat);
+    setCheckboxState(ui_LowVCheck, screenData.contactorScreen.lvBoard.heartbeat);
+    setCheckboxState(ui_ChargeCheck, screenData.contactorScreen.chargeBoard.heartbeat);
+
+    lv_label_set_text(ui_CommonContactorLabel, toString(screenData.contactorScreen.commonBoard.contactorState));
+    lv_label_set_text(ui_MotorContactorLabel, toString(screenData.contactorScreen.motorBoard.contactorState));
+    lv_label_set_text(ui_ArrayContactorLabel, toString(screenData.contactorScreen.arrayBoard.contactorState));
+    lv_label_set_text(ui_LowVContactorLabel, toString(screenData.contactorScreen.lvBoard.contactorState));
+    lv_label_set_text(ui_ChargeContactorLabel, toString(screenData.contactorScreen.chargeBoard.contactorState));
+
+    char buf[32];
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.commonBoard.lineCurrent);
+    lv_label_set_text(ui_CommonLA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.commonBoard.chargeCurrent);
+    lv_label_set_text(ui_CommonCA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.motorBoard.lineCurrent);
+    lv_label_set_text(ui_MotorLA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.motorBoard.chargeCurrent);
+    lv_label_set_text(ui_MotorCA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.arrayBoard.lineCurrent);
+    lv_label_set_text(ui_ArrayLA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.arrayBoard.chargeCurrent);
+    lv_label_set_text(ui_ArrayCA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.lvBoard.lineCurrent);
+    lv_label_set_text(ui_LowVLA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.lvBoard.chargeCurrent);
+    lv_label_set_text(ui_LowVCA, buf);
+    
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.chargeBoard.lineCurrent);
+    lv_label_set_text(ui_ChargeLA, buf);
+
+    snprintf(buf, sizeof(buf), "%.1f A", screenData.contactorScreen.chargeBoard.chargeCurrent);
+    lv_label_set_text(ui_ChargeCA, buf);
+
+}
