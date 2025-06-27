@@ -27,7 +27,6 @@ void clearAllCheckMarks(void)
     lv_obj_clear_state(ui_ArrayCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_LowVCheck, LV_STATE_CHECKED); 
     lv_obj_clear_state(ui_ChargeCheck, LV_STATE_CHECKED);
-    lv_obj_clear_state(ui_PreChargerCheck, LV_STATE_CHECKED);
     lv_obj_clear_state(ui_MotorCheck, LV_STATE_CHECKED);
 
     lv_obj_clear_state(ui_OrionCanReceivedCheck, LV_STATE_CHECKED);

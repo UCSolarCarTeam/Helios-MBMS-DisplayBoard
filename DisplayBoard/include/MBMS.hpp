@@ -41,7 +41,7 @@ enum class CarState : uint8_t {
 
 // COMMON STRUCT FOR BOARD STATUS
 struct BoardStatus {
-  bool heartbeat;
+  uint8_t heartbeat;
   PrechargeState prechargerState;
   ContactorState contactorState;
   float lineCurrent;   // Scaled from uint12_t
@@ -59,53 +59,53 @@ struct ContactorScreen {
 
 // TRIP SCREEN
 struct TripScreen {
-  bool highCellVoltageTrip;
-  bool lowCellVoltageTrip;
-  bool commonHighCurrentTrip;
-  bool motorHighCurrentTrip;
-  bool arrayHighCurrentTrip;
-  bool lvHighCurrentTrip;
-  bool chargeHighCurrentTrip;
-  bool protectionTrip;
-  bool orionMsgTimeoutTrip;
-  bool contactorDiscUnexpected;
-  bool contactorConnUnexpected;
-  bool commonHeartbeatDead;
-  bool motorHeartbeatDead;
-  bool arrayHeartbeatDead;
-  bool lvHeartbeatDead;
-  bool chargeHeartbeatDead;
-  bool mpsDisabledTrip;
-  bool esdEnabledTrip;
-  bool highTempTrip;
-  bool lowTempTrip;
+  uint8_t highCellVoltageTrip;
+  uint8_t lowCellVoltageTrip;
+  uint8_t commonHighCurrentTrip;
+  uint8_t motorHighCurrentTrip;
+  uint8_t arrayHighCurrentTrip;
+  uint8_t lvHighCurrentTrip;
+  uint8_t chargeHighCurrentTrip;
+  uint8_t protectionTrip;
+  uint8_t orionMsgTimeoutTrip;
+  uint8_t contactorDiscUnexpected;
+  uint8_t contactorConnUnexpected;
+  uint8_t commonHeartbeatDead;
+  uint8_t motorHeartbeatDead;
+  uint8_t arrayHeartbeatDead;
+  uint8_t lvHeartbeatDead;
+  uint8_t chargeHeartbeatDead;
+  uint8_t mpsDisabledTrip;
+  uint8_t esdEnabledTrip;
+  uint8_t highTempTrip;
+  uint8_t lowTempTrip;
 };
 
 // POWER SELECTION STATUS
 struct PowerSelectionStatus {
-  bool nMainPowerSwitch;
-  bool externalShutdown;
-  bool en1;
-  bool nDCDCFault;
-  bool n3A_OC;
-  bool nDCDC_On;
-  bool nCHGFault;
-  bool nCHG_On;
-  bool nCHG_LV_En;
-  bool abattDisable;
-  bool key;
+  uint8_t nMainPowerSwitch;
+  uint8_t externalShutdown;
+  uint8_t en1;
+  uint8_t nDCDCFault;
+  uint8_t n3A_OC;
+  uint8_t nDCDC_On;
+  uint8_t nCHGFault;
+  uint8_t nCHG_On;
+  uint8_t nCHG_LV_En;
+  uint8_t abattDisable;
+  uint8_t key;
 };
 
 // MBMS STATUS SCREEN
 struct MBMSStatusScreen {
   float auxBatteryVoltage; // scaled value
-  bool strobeBMSLight;
-  bool nChargeEnable;
-  bool nChargeSafety;
-  bool nDischargeEnable;
-  bool orionCANRx;
-  bool dischargeShouldTrip;
-  bool chargeShouldTrip;
+  uint8_t strobeBMSLight;
+  uint8_t nChargeEnable;
+  uint8_t nChargeSafety;
+  uint8_t nDischargeEnable;
+  uint8_t orionCANRx;
+  uint8_t dischargeShouldTrip;
+  uint8_t chargeShouldTrip;
   StartupState startupState; // 4 bits
   CarState systemState; // 3 bits
 };
