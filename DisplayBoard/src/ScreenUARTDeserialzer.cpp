@@ -1,4 +1,5 @@
 #include "ScreenUARTDeserializer.h"
+#include "debug.h"
 #include <cstring>  // for memcpy
 
 
@@ -109,17 +110,17 @@ bool deserializeScreenData(ScreenDataDictionary &out, const uint8_t *buffer, siz
 
 
 void UARTReceiverTask(void *pvParameters){
-    while (true) {
-    if (uart1.available() >= UART_BUFFER_SIZE) {
-      uart1.readBytes(rxBuffer, UART_BUFFER_SIZE);
-
-      if (deserializeScreenData(screenData, rxBuffer, UART_BUFFER_SIZE)) {
-        Serial.println("Screen data updated.");
+   while (true) {
+    int len = uart1.readBytes(rxBuffer, UART_BUFFER_SIZE);
+    if (len > 0) {
+      ScreenDataDictionary temp;
+      if (deserializeScreenData(temp, rxBuffer, len)) {
+        screenData = temp; // copy into global
+        Serial.println("Received and deserialized screen data.");
       } else {
-        Serial.println("Failed to parse UART data.");
+        Serial.println("Failed to deserialize data.");
       }
     }
-
-    vTaskDelay(pdMS_TO_TICKS(10));  
+    vTaskDelay(pdMS_TO_TICKS(100)); // small delay
   }
 }

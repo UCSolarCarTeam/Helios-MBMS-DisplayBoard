@@ -1,4 +1,5 @@
 #include "main.h"
+#include "debug.h"
 
 ScreenID current_screen = SCREEN_CONTACTOR;
 unsigned long lastScreenChangeTime = 0;
@@ -35,6 +36,7 @@ void setup()
 void loop()
 {
 
+  printScreenDataDictionary(screenData); // Print screen data for debugging
   
   unsigned long currentTime = millis();
   if (currentTime - lastScreenChangeTime >= screenChangeInterval)

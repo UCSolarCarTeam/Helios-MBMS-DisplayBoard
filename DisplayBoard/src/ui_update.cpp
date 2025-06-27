@@ -36,6 +36,7 @@ void updateUI(void)
     mbmsStatusScreenUpdate();
     powerSelectionStatusScreenUpdate();
     tripScreenUpdate();
+    contactorScreenUpdate();
 }
 
 void updateBatteryInfoUI(void)
