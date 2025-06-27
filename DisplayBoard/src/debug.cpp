@@ -1,7 +1,7 @@
 #include "ScreenUARTDeserializer.h"  
 #include <Arduino.h>
+#include "debug.h"
 
-#define DEBUG_UART 1
 
 // Helper: Enum to string (feel free to expand/clean these)
 const char* toString(PrechargeState s) {
