@@ -376,9 +376,9 @@ void ui_Contactor_Screen_screen_init(void)
     ui_ContactorColumnContainer = lv_obj_create(ui_Contactor_Screen);
     lv_obj_remove_style_all(ui_ContactorColumnContainer);
     lv_obj_set_width(ui_ContactorColumnContainer, 1);
-    lv_obj_set_height(ui_ContactorColumnContainer, 168);
+    lv_obj_set_height(ui_ContactorColumnContainer, 196);
     lv_obj_set_x(ui_ContactorColumnContainer, -58);
-    lv_obj_set_y(ui_ContactorColumnContainer, -5);
+    lv_obj_set_y(ui_ContactorColumnContainer, -20);
     lv_obj_set_align(ui_ContactorColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_ContactorColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_ContactorColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -390,9 +390,9 @@ void ui_Contactor_Screen_screen_init(void)
     ui_StateColumnContainer = lv_obj_create(ui_Contactor_Screen);
     lv_obj_remove_style_all(ui_StateColumnContainer);
     lv_obj_set_width(ui_StateColumnContainer, 1);
-    lv_obj_set_height(ui_StateColumnContainer, 168);
+    lv_obj_set_height(ui_StateColumnContainer, 196);
     lv_obj_set_x(ui_StateColumnContainer, 16);
-    lv_obj_set_y(ui_StateColumnContainer, -5);
+    lv_obj_set_y(ui_StateColumnContainer, -20);
     lv_obj_set_align(ui_StateColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_StateColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_StateColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -404,9 +404,9 @@ void ui_Contactor_Screen_screen_init(void)
     ui_HeartbeatColumnContainer = lv_obj_create(ui_Contactor_Screen);
     lv_obj_remove_style_all(ui_HeartbeatColumnContainer);
     lv_obj_set_width(ui_HeartbeatColumnContainer, 1);
-    lv_obj_set_height(ui_HeartbeatColumnContainer, 168);
+    lv_obj_set_height(ui_HeartbeatColumnContainer, 196);
     lv_obj_set_x(ui_HeartbeatColumnContainer, 62);
-    lv_obj_set_y(ui_HeartbeatColumnContainer, -6);
+    lv_obj_set_y(ui_HeartbeatColumnContainer, -20);
     lv_obj_set_align(ui_HeartbeatColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_HeartbeatColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_HeartbeatColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -418,9 +418,9 @@ void ui_Contactor_Screen_screen_init(void)
     ui_AmpColumnContainer = lv_obj_create(ui_Contactor_Screen);
     lv_obj_remove_style_all(ui_AmpColumnContainer);
     lv_obj_set_width(ui_AmpColumnContainer, 1);
-    lv_obj_set_height(ui_AmpColumnContainer, 168);
+    lv_obj_set_height(ui_AmpColumnContainer, 196);
     lv_obj_set_x(ui_AmpColumnContainer, 109);
-    lv_obj_set_y(ui_AmpColumnContainer, -5);
+    lv_obj_set_y(ui_AmpColumnContainer, -20);
     lv_obj_set_align(ui_AmpColumnContainer, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_AmpColumnContainer, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_bg_color(ui_AmpColumnContainer, lv_color_hex(0x101418), LV_PART_MAIN | LV_STATE_DEFAULT);
