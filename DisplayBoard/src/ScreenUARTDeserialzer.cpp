@@ -116,6 +116,7 @@ void UARTReceiverTask(void *pvParameters){
       ScreenDataDictionary temp;
       if (deserializeScreenData(temp, rxBuffer, len)) {
         screenData = temp; // copy into global
+        updateUI();
         Serial.println("Received and deserialized screen data.");
       } else {
         Serial.println("Failed to deserialize data.");
