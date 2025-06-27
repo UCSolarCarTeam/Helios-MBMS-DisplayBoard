@@ -27,6 +27,8 @@ void setup()
   lv_scr_load(ui_Contactor_Screen);
   lv_refr_now(NULL);
   clearAllCheckMarks();
+
+  xTaskCreate(UARTReceiverTask, "UART Receiver Task", 4096, NULL, 5, NULL);
 }
 
 
