@@ -6,11 +6,16 @@ const unsigned long screenChangeInterval = 7000; // 7 seconds
 
 TFT_eSPI tftDisplay = TFT_eSPI();
 
+HardwareSerial uart1(1);  
+uint8_t rxBuffer[UART_BUFFER_SIZE];
+
+
 ScreenDataDictionary screenData;
 
 void setup()
 {
   Serial.begin(115200);
+  uart1.begin(UART_BAUD_RATE, SERIAL_8N1, UART_RX_PIN, UART_TX_PIN);
 
   Serial.println("Starting MBMS UI...");
   Serial.println("Hello");
@@ -28,6 +33,7 @@ void setup()
 void loop()
 {
 
+  
   unsigned long currentTime = millis();
   if (currentTime - lastScreenChangeTime >= screenChangeInterval)
   {
@@ -38,5 +44,5 @@ void loop()
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);
   lv_timer_handler(); // Handle LVGL timers
-  delay(5);           // Small delay to allow for task processing
+  delay(700);           // Small delay to allow for task processing
 }
