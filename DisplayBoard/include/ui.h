@@ -111,6 +111,27 @@ extern lv_obj_t * ui_ChargeHeartbeatTrip;
 extern lv_obj_t * ui_ContactorDisconnectedUnexpectedlyTrip;
 extern lv_obj_t * ui_ContactorConnectedUnexpectedlyTrip;
 extern lv_obj_t * ui_LVHeartBeatTrip;
+extern lv_obj_t * ui_MotorHeartbeatVal;
+extern lv_obj_t * ui_ArrayHeartBeatVal;
+extern lv_obj_t * ui_ChargeHeartBeatVal;
+extern lv_obj_t * ui_CommonHeartBeatVal;
+extern lv_obj_t * ui_LVHeartBeatVal;
+extern lv_obj_t * ui_HighCellVoltVal;
+extern lv_obj_t * ui_LowCellVoltVal;
+extern lv_obj_t * ui_HighBatteryVal;
+extern lv_obj_t * ui_MPSDisabledVal;
+extern lv_obj_t * ui_ESDEnabledVal;
+extern lv_obj_t * ui_HiTempVal;
+extern lv_obj_t * ui_LoTempVal;
+extern lv_obj_t * ui_ProtectionVal;
+extern lv_obj_t * ui_ChargeHighCurrVal;
+extern lv_obj_t * ui_LvHighCurrVal;
+extern lv_obj_t * ui_ArrayHighCurrVal;
+extern lv_obj_t * ui_MotorHighCurrVal;
+extern lv_obj_t * ui_CommonHighCurrVal;
+extern lv_obj_t * ui_OrionMessageTimeoutVal;
+extern lv_obj_t * ui_ContactorConnectedUnexpectedlyVal;
+extern lv_obj_t * ui_ContactorDisconnectedUnexpectedlyVal;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_BatteryInfoScreen

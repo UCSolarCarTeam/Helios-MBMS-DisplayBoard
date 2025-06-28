@@ -9,6 +9,7 @@
 #define LV_FONT_MONTSERRAT_40  1
 #define LV_FONT_MONTSERRAT_18  1
 #define LV_FONT_MONTSERRAT_10  1
+#define LV_FONT_MONTSERRAT_12  1
 
 /* Screen resolution */
 #define LV_HOR_RES_MAX 320
