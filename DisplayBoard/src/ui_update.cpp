@@ -252,11 +252,11 @@ void contactorScreenUpdate(void){
     setCheckboxState(ui_LowVCheck, screenData.contactorScreen.lvBoard.heartbeat);
     setCheckboxState(ui_ChargeCheck, screenData.contactorScreen.chargeBoard.heartbeat);
 
-    lv_label_set_text(ui_CommonContactorLabel, toString(screenData.contactorScreen.commonBoard.contactorState));
-    lv_label_set_text(ui_MotorContactorLabel, toString(screenData.contactorScreen.motorBoard.contactorState));
-    lv_label_set_text(ui_ArrayContactorLabel, toString(screenData.contactorScreen.arrayBoard.contactorState));
-    lv_label_set_text(ui_LowVContactorLabel, toString(screenData.contactorScreen.lvBoard.contactorState));
-    lv_label_set_text(ui_ChargeContactorLabel, toString(screenData.contactorScreen.chargeBoard.contactorState));
+    lv_label_set_text(ui_CommonState, toString(screenData.contactorScreen.commonBoard.contactorState));
+    lv_label_set_text(ui_MotorState, toString(screenData.contactorScreen.motorBoard.contactorState));
+    lv_label_set_text(ui_ArrayState, toString(screenData.contactorScreen.arrayBoard.contactorState));
+    lv_label_set_text(ui_LowVState, toString(screenData.contactorScreen.lvBoard.contactorState));
+    lv_label_set_text(ui_ChargeState, toString(screenData.contactorScreen.chargeBoard.contactorState));
 
     char buf[32];
 
