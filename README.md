@@ -5,6 +5,12 @@
 # Wiring Diagram
 
 ## Wires on Screen
+
+## Specific Wires
+VIN -> POWER
+GND -> GND 
+IO22 -> SCREEN_RX
+
 ![WiringDiagram](./ImageAssests/ScreenWiring.png)
 
 
