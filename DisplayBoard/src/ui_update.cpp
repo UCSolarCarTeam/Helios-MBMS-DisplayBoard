@@ -161,7 +161,16 @@ void powerSelectionStatusScreenUpdate(void){
     lv_label_set_text(ui_KeyVal, boolToYesNo(screenData.powerStatus.key));
 }
 
+void setLabelXorEmpty(lv_obj_t * label, bool condition) {
+    if(condition) {
+        lv_label_set_text(label, "X");
+    } else {
+        lv_label_set_text(label, "");
+    }
+}
+
 void tripScreenUpdate(void){
+    // Existing checkbox updates
     setCheckboxState(ui_HighCellVoltageTrip, screenData.tripScreen.highCellVoltageTrip);
     setCheckboxState(ui_LowCellVoltageTrip, screenData.tripScreen.lowCellVoltageTrip);
     setCheckboxState(ui_CommonHighCurrTrip, screenData.tripScreen.commonHighCurrentTrip);
@@ -176,7 +185,6 @@ void tripScreenUpdate(void){
     setCheckboxState(ui_ContactorDisconnectedUnexpectedlyTrip, screenData.tripScreen.contactorDiscUnexpected);
     setCheckboxState(ui_ContactorConnectedUnexpectedlyTrip, screenData.tripScreen.contactorConnUnexpected);
 
-
     setCheckboxState(ui_CommonHeartBeatTrip, screenData.tripScreen.commonHeartbeatDead);
     setCheckboxState(ui_MotorHeartbeatTrip, screenData.tripScreen.motorHeartbeatDead);
     setCheckboxState(ui_ArrayHeartbeatTrip, screenData.tripScreen.arrayHeartbeatDead);
@@ -187,7 +195,35 @@ void tripScreenUpdate(void){
     setCheckboxState(ui_ESDEnabledTrip, screenData.tripScreen.esdEnabledTrip);
     setCheckboxState(ui_HighTempTrip, screenData.tripScreen.highTempTrip);
     setCheckboxState(ui_LowTempTrip, screenData.tripScreen.lowTempTrip);
+
+    // Now update your labels:
+    setLabelXorEmpty(ui_HighCellVoltVal, screenData.tripScreen.highCellVoltageTrip);
+    setLabelXorEmpty(ui_LowCellVoltVal, screenData.tripScreen.lowCellVoltageTrip);
+    setLabelXorEmpty(ui_CommonHighCurrVal, screenData.tripScreen.commonHighCurrentTrip);
+
+    setLabelXorEmpty(ui_HighBatteryVal, 0);
+    setLabelXorEmpty(ui_MotorHighCurrVal, screenData.tripScreen.motorHighCurrentTrip);
+    setLabelXorEmpty(ui_ArrayHighCurrVal, screenData.tripScreen.arrayHighCurrentTrip);
+    setLabelXorEmpty(ui_LvHighCurrVal, screenData.tripScreen.lvHighCurrentTrip);
+    setLabelXorEmpty(ui_ChargeHighCurrVal, screenData.tripScreen.chargeHighCurrentTrip);
+    setLabelXorEmpty(ui_ProtectionVal, screenData.tripScreen.protectionTrip);
+
+    setLabelXorEmpty(ui_OrionMessageTimeoutVal, screenData.tripScreen.orionMsgTimeoutTrip);
+    setLabelXorEmpty(ui_ContactorDisconnectedUnexpectedlyVal, screenData.tripScreen.contactorDiscUnexpected);
+    setLabelXorEmpty(ui_ContactorConnectedUnexpectedlyVal, screenData.tripScreen.contactorConnUnexpected);
+
+    setLabelXorEmpty(ui_CommonHeartBeatVal, screenData.tripScreen.commonHeartbeatDead);
+    setLabelXorEmpty(ui_MotorHeartbeatVal, screenData.tripScreen.motorHeartbeatDead);
+    setLabelXorEmpty(ui_ArrayHeartBeatVal, screenData.tripScreen.arrayHeartbeatDead);
+    setLabelXorEmpty(ui_LVHeartBeatVal, screenData.tripScreen.lvHeartbeatDead);
+    setLabelXorEmpty(ui_ChargeHeartBeatVal, screenData.tripScreen.chargeHeartbeatDead);
+
+    setLabelXorEmpty(ui_MPSDisabledVal, screenData.tripScreen.mpsDisabledTrip);
+    setLabelXorEmpty(ui_ESDEnabledVal, screenData.tripScreen.esdEnabledTrip);
+    setLabelXorEmpty(ui_HiTempVal, screenData.tripScreen.highTempTrip);
+    setLabelXorEmpty(ui_LoTempVal, screenData.tripScreen.lowTempTrip);
 }
+
 
 inline const char* toString(PrechargeState state) {
   switch (state) {
@@ -216,11 +252,11 @@ void contactorScreenUpdate(void){
     setCheckboxState(ui_LowVCheck, screenData.contactorScreen.lvBoard.heartbeat);
     setCheckboxState(ui_ChargeCheck, screenData.contactorScreen.chargeBoard.heartbeat);
 
-    lv_label_set_text(ui_CommonContactorLabel, toString(screenData.contactorScreen.commonBoard.contactorState));
-    lv_label_set_text(ui_MotorContactorLabel, toString(screenData.contactorScreen.motorBoard.contactorState));
-    lv_label_set_text(ui_ArrayContactorLabel, toString(screenData.contactorScreen.arrayBoard.contactorState));
-    lv_label_set_text(ui_LowVContactorLabel, toString(screenData.contactorScreen.lvBoard.contactorState));
-    lv_label_set_text(ui_ChargeContactorLabel, toString(screenData.contactorScreen.chargeBoard.contactorState));
+    lv_label_set_text(ui_CommonState, toString(screenData.contactorScreen.commonBoard.contactorState));
+    lv_label_set_text(ui_MotorState, toString(screenData.contactorScreen.motorBoard.contactorState));
+    lv_label_set_text(ui_ArrayState, toString(screenData.contactorScreen.arrayBoard.contactorState));
+    lv_label_set_text(ui_LowVState, toString(screenData.contactorScreen.lvBoard.contactorState));
+    lv_label_set_text(ui_ChargeState, toString(screenData.contactorScreen.chargeBoard.contactorState));
 
     char buf[32];
 

@@ -1,5 +1,6 @@
 #include "main.h"
 #include "debug.h"
+#include <SPI.h>
 
 ScreenID current_screen = SCREEN_CONTACTOR;
 unsigned long lastScreenChangeTime = 0;
@@ -10,6 +11,9 @@ TFT_eSPI tftDisplay = TFT_eSPI();
 HardwareSerial uart1(1);  
 uint8_t rxBuffer[UART_BUFFER_SIZE];
 
+XPT2046_Touchscreen touchscreen(XPT2046_CS, XPT2046_IRQ);
+SPIClass touchscreenSPI = SPIClass(VSPI);
+volatile bool atHomeScreen = true;
 
 ScreenDataDictionary screenData;
 
@@ -25,7 +29,7 @@ void setup()
   tft_init();
 
   Serial.println("UI initialized, switching screens");
-  lv_scr_load(ui_Contactor_Screen);
+  lv_scr_load(ui_HomeScreen);
   lv_refr_now(NULL);
   clearAllCheckMarks();
 
@@ -36,14 +40,20 @@ void setup()
 void loop()
 {
 
+  if (touchscreen.tirqTouched() && touchscreen.touched()) {
+    // Get Touchscreen points
+    handleTouchscreen();
+  }
+
+
   printScreenDataDictionary(screenData); // Print screen data for debugging
   
-  unsigned long currentTime = millis();
-  if (currentTime - lastScreenChangeTime >= screenChangeInterval)
-  {
-    lastScreenChangeTime = currentTime;
-    load_next_screen(); // Cycle to next screen
-  }
+  // unsigned long currentTime = millis();
+  // if (currentTime - lastScreenChangeTime >= screenChangeInterval)
+  // {
+  //   lastScreenChangeTime = currentTime;
+  //   load_next_screen(); // Cycle to next screen
+  // }
 
   lv_task_handler(); // Handle LVGL tasks
   lv_refr_now(NULL);

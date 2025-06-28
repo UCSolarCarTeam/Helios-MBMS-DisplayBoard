@@ -97,6 +97,27 @@ lv_obj_t * ui_ChargeHeartbeatTrip;
 lv_obj_t * ui_ContactorDisconnectedUnexpectedlyTrip;
 lv_obj_t * ui_ContactorConnectedUnexpectedlyTrip;
 lv_obj_t * ui_LVHeartBeatTrip;
+lv_obj_t * ui_MotorHeartbeatVal;
+lv_obj_t * ui_ArrayHeartBeatVal;
+lv_obj_t * ui_ChargeHeartBeatVal;
+lv_obj_t * ui_CommonHeartBeatVal;
+lv_obj_t * ui_LVHeartBeatVal;
+lv_obj_t * ui_HighCellVoltVal;
+lv_obj_t * ui_LowCellVoltVal;
+lv_obj_t * ui_HighBatteryVal;
+lv_obj_t * ui_MPSDisabledVal;
+lv_obj_t * ui_ESDEnabledVal;
+lv_obj_t * ui_HiTempVal;
+lv_obj_t * ui_LoTempVal;
+lv_obj_t * ui_ProtectionVal;
+lv_obj_t * ui_ChargeHighCurrVal;
+lv_obj_t * ui_LvHighCurrVal;
+lv_obj_t * ui_ArrayHighCurrVal;
+lv_obj_t * ui_MotorHighCurrVal;
+lv_obj_t * ui_CommonHighCurrVal;
+lv_obj_t * ui_OrionMessageTimeoutVal;
+lv_obj_t * ui_ContactorConnectedUnexpectedlyVal;
+lv_obj_t * ui_ContactorDisconnectedUnexpectedlyVal;
 // CUSTOM VARIABLES
 
 
